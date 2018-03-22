@@ -21,41 +21,39 @@
             </div><!--col-->
         </div><!--row-->
 
-        <div class="row mt-4">
-            <div class="col">
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>{{ __('labels.backend.access.products.table.name') }}</th>
-                            <th>{{ __('labels.backend.access.products.table.description') }}</th>
-                            <th>{{ __('labels.backend.access.products.table.category') }}</th>
-                            <th>{{ __('labels.backend.access.products.table.stock') }}</th>
-                            <th>{{ __('labels.backend.access.products.table.date_end') }}</th>
-                            <th>{{ __('labels.backend.access.products.table.price') }}</th>
-                            <th>{{ __('labels.backend.access.products.table.user_id') }}</th>
-                            <th>{{ __('labels.backend.access.products.table.last_updated') }}</th>
-                            <th>{{ __('labels.general.actions') }}</th>
-                        </tr>
-                        </thead>
-                        <tbody>
+        <div class="row mt-12">
+            
+                
                         @foreach ($products as $product)
-                            <tr>
-                                <td>{{ $product->name }}</td>
-                                <td>{{ $product->description }}</td>
-                                <td>{{ $product->category }}</td>
-                                <td>{{ $product->stock }}</td>
-                                <td>{{ $product->date_end }}</td>
-                                <td>{{ $product->price }}</td>
-                                <td>{{ $product->user->name }}</td>
-                                <td>{{ $product->updated_at->diffForHumans() }}</td>
-                                <td>{!! $product->action_buttons !!}</td>
-                            </tr>
+                        <div class="col col-sm-2 order-1 order-sm-2  mb-3">
+                            <div class="card mb-2 bg-light">
+                                <img class="card-img-top" src="{{ $logged_in_user->picture }}" alt="Profile Picture">
+
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        {{ $product->name }}<br/>
+                                    </h4>
+
+                                    <p class="card-text">
+                                        <small>
+                                            <i class="fa fa-info"></i> {{ $product->description }}<br/>
+                                            <i class="fa fa-info"></i> {{ $product->category }}<br/>
+                                            <i class="fa fa-info"></i> $ {{ $product->price }}<br/>
+                                            
+                                        </small>
+                                    </p>
+
+                                    <p class="card-text">
+
+                                       {!! $product->action_buttons !!}
+                                    
+                                    </p>
+                                </div>
+                            </div>
+                        </div><!--col-md-4-->
+                            
                         @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div><!--col-->
+                    
         </div><!--row-->
         <div class="row">
             <div class="col-7">
@@ -73,3 +71,5 @@
     </div><!--card-body-->
 </div><!--card-->
 @endsection
+
+

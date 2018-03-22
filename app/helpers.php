@@ -65,7 +65,7 @@ if (! function_exists('home_route')) {
     {
         if (auth()->check()) {
             if (auth()->user()->can('view backend')) {
-                return 'admin.dashboard';
+                return 'admin.auth.product.index';
             } else {
                 return 'frontend.user.dashboard';
             }
