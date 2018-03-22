@@ -28,6 +28,11 @@ return [
                 'unconfirm'          => 'Deshacer',
                 'unlink'             => 'Desactivar',
             ],
+            'products' => [
+                'delete_permanently' => 'Eliminar de forma permanente',
+                'restore_user'       => 'Restaurar Producto',
+                'unlink'             => 'Desactivar',
+            ],
         ],
     ],
 

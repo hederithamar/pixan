@@ -51,6 +51,14 @@ return [
                 'update_error'            => 'Hubo un problema al modificar el Usuario. Intentelo de nuevo.',
                 'update_password_error'   => 'Hubo un problema al cambiar la contraseña. Intentelo de nuevo.',
             ],
+
+            'products' => [
+                'already_exists'    => 'Este Producto ya existe. Por favor, especifique un nombre de Producto diferente.',
+                'create_error'      => 'Hubo un problema al crear el Producto. Intentelo de nuevo.',
+                'delete_error'      => 'Hubo un problema al eliminar el Producto. Intentelo de nuevo.',
+                'not_found'         => 'El Producto requerido no existe.',
+                'update_error'      => 'Hubo un problema al modificar el Producto. Intentelo de nuevo.',
+            ],
         ],
     ],
 

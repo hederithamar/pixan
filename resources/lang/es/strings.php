@@ -22,6 +22,13 @@ return [
                 'no_deleted'            => 'No hay usuarios eliminados.',
                 'restore_user_confirm'  => 'Restaurar este Usuario a su estado original?',
             ],
+            'products' => [
+                'delete_product_confirm'   => 'Estás seguro de querer eliminar este Producto de forma permanente? Esto puede producir un error grave en aquéllas partes de la aplicación que hagan referencia al mismo. Proceda con cautela. Esta operación no puede ser revertida.',
+                'if_confirmed_off'      => '(Si la confirmación está desactivada)',
+                'no_deactivated'        => 'No hay usuarios desactivados.',
+                'no_deleted'            => 'No hay usuarios eliminados.',
+                'restore_product_confirm'  => 'Restaurar este Producto a su estado original?',
+            ],
         ],
 
         'dashboard' => [
@@ -70,7 +77,12 @@ return [
 <p>Espero que disfrute y aprecie el trabajo depositado en este proyecto. Por favor, visite <a href="https://github.com/rappasoft/laravel-5-boilerplate" target="_blank">GitHub</a> para mas información o reportar error <a href="https://github.com/rappasoft/Laravel-5-Boilerplate/issues" target="_blank">aquí</a>.</p>
 <p><strong>Este proyecto es muy demandante para mantenerse al día con la frecuencia en que el master branch de laravel va cambiando, por tanto cualquier ayuda será apreciada.</strong></p>
 <p>- Anthony Rappa</p>',
+
+ 'welcome_pixan' => 'Bienvenido Usuario',
+    
+
     ],
+
 
     'emails' => [
         'auth' => [

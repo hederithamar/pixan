@@ -3,6 +3,7 @@
 namespace App\Models\Auth\Traits\Relationship;
 
 use App\Models\System\Session;
+use App\Models\Auth\Product;
 use App\Models\Auth\SocialAccount;
 
 /**
@@ -24,5 +25,13 @@ trait UserRelationship
     public function sessions()
     {
         return $this->hasMany(Session::class);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function products()
+    {
+        return $this->hasMany(Products::class, 'user_id');
     }
 }

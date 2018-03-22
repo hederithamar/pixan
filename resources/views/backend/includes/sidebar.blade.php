@@ -25,6 +25,15 @@
 
                     <ul class="nav-dropdown-items">
                         <li class="nav-item">
+                            <a class="nav-link {{ active_class(Active::checkUriPattern('admin/auth/product*')) }}" href="{{ route('admin.auth.product.index') }}">
+                                {{ __('labels.backend.access.products.management') }}
+
+                                @if ($pending_approval > 0)
+                                    <span class="badge badge-danger">{{ $pending_approval }}</span>
+                                @endif
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link {{ active_class(Active::checkUriPattern('admin/auth/user*')) }}" href="{{ route('admin.auth.user.index') }}">
                                 {{ __('labels.backend.access.users.management') }}
 
@@ -38,10 +47,12 @@
                                 {{ __('labels.backend.access.roles.management') }}
                             </a>
                         </li>
+                         
                     </ul>
                 </li>
             @endif
 
+          
             <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/log-viewer*'), 'open') }}">
                 <a class="nav-link nav-dropdown-toggle" href="#">
                     <i class="icon-list"></i> {{ __('menus.backend.log-viewer.main') }}

@@ -22,6 +22,7 @@ return [
      */
     'table_names' => [
         'users' => 'users',
+        'products' => 'products',
     ],
 
     /*
@@ -46,7 +47,7 @@ return [
         /*
          * The default role all new registered users get added to
          */
-        'default_role' => 'user',
+        'default_role' => 'administrator',
 
         /*
          * Whether or not new users need to be approved by an administrator before logging in

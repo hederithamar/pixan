@@ -21,9 +21,9 @@ class UserTableSeeder extends Seeder
 
         // Add the master administrator, user id of 1
         User::create([
-            'first_name'        => 'Admin',
-            'last_name'         => 'Istrator',
-            'email'             => 'admin@admin.com',
+            'first_name'        => 'Pixan',
+            'last_name'         => 'Test',
+            'email'             => 'pixan@test.com',
             'password'          => bcrypt('1234'),
             'confirmation_code' => md5(uniqid(mt_rand(), true)),
             'confirmed'         => true,

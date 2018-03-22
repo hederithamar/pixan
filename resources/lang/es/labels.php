@@ -48,6 +48,28 @@ return [
                 ],
             ],
 
+            'products' => [
+                'active'     => 'Productos activos',
+                'create'     => 'Crear Producto',
+                'edit'       => 'Modificar Producto',
+                'management' => 'Administración de Productos',
+                'deleted'    => 'Productos eliminados',
+
+                'table' => [
+                    'name'            => 'Productos',
+                    'description'     => 'Descripcion',
+                    'category'        => 'Categoria',
+                    'stock'           => 'Vendidos',
+                    'date_end'        => 'Fecha',
+                    'price'           => 'Precio',
+                    'sort'            => 'Orden',
+                    'last_updated'    => 'Última modificación',
+                    'total'           => 'Todos los Productos',
+                    'user_id'         => 'Usuario asignado',
+                ],
+            ],
+
+
             'users' => [
                 'active'              => 'Usuarios activos',
                 'all_permissions'     => 'Todos los Permisos',

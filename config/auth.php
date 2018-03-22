@@ -70,6 +70,11 @@ return [
             'model' => App\Models\Auth\User::class,
         ],
 
+        'products' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Auth\Product::class,
+        ],
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

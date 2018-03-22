@@ -15,7 +15,7 @@ return [
 
     'backend' => [
         'access' => [
-            'title' => 'Administración de acceso',
+            'title' => 'Administración',
 
             'roles' => [
                 'all'        => 'Todos los Roles',
@@ -34,6 +34,16 @@ return [
                 'edit'            => 'Modificar Usuario',
                 'main'            => 'Usuario',
                 'view'            => 'Ver Usuario',
+            ],
+
+            'products' => [
+                'all'             => 'Todos los Productos',
+                'create'          => 'Nuevo Producto',
+                'deactivated'     => 'Productos Desactivados',
+                'deleted'         => 'Productos Eliminados',
+                'edit'            => 'Modificar Productos',
+                'main'            => 'Productos',
+                'view'            => 'Ver Producto',
             ],
         ],
 

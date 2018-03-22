@@ -34,6 +34,13 @@ return [
             'updated'             => 'Usuario actualizado satisfactoriamente.',
             'updated_password'    => 'Contraseña actualizada satisfactoriamente.',
         ],
+        'products' => [
+            'created'             => 'Producto creado satisfactoriamente.',
+            'deleted'             => 'Producto eliminado satisfactoriamente.',
+            'deleted_permanently' => 'Producto eliminado de forma permanente.',
+            'restored'            => 'Producto restaurado satisfactoriamente.',
+            'updated'             => 'Producto actualizado satisfactoriamente.',
+        ],
     ],
 
     'frontend' => [

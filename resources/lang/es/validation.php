@@ -157,6 +157,27 @@ return [
                     'timezone'                => 'Zona Horaria',
                     'language'                => 'Lenguaje',
                 ],
+
+                'products' => [
+                    'active'             => 'Activo',
+                    'name'               => 'El nombre de tu producto',
+                    'category'           => 'Categoria de tu platillo',
+                    'description'        => 'Descripcion del producto',
+                    'price'              => '¿Que precio tiene tu producto?',
+                    'user_id'            => 'Usuario Vinculado',
+                    'image'              => 'Imagen Vinculada',
+                    'image_defect'       => 'Imagen por defecto',
+                    'stock'              => '¿Cuantos productos quieres vender?',
+                    'date_end'           => '¿Hasta cuando estara disponible?',
+                    'name_input'               => 'ej. Monitor LG de 23"',
+                    'category_input'           => 'ej. Electrónicos',
+                    'description_input'        => 'ej. Monitor Full HD LG, 23 pulgadas, Resolucion 1920x1080 px',
+                    'price_input'              => 'ej. 3000 (Usa solo numeros)',
+                    
+                    'stock_input'              => 'ej. 1',
+                    'date_end_input'              => 'Selecciona una fecha y hora',
+
+                ],
             ],
         ],
 

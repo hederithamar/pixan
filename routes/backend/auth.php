@@ -70,5 +70,27 @@ Route::group([
         Route::group(['namespace' => 'Role'], function () {
             Route::resource('role', 'RoleController', ['except' => ['show']]);
         });
+
+        /*
+         * Product Management
+         */
+        Route::group(['namespace' => 'Product'], function () {
+
+             Route::get('product/deleted', 'ProductStatusController@getDeleted')->name('product.deleted');
+
+            /*
+             * Product CRUD
+             */
+            Route::resource('product', 'ProductController');
+
+
+            /*
+             * Deleted Product
+             */
+            Route::group(['prefix' => 'product/{deletedProduct}'], function () {
+                Route::get('delete', 'ProductStatusController@delete')->name('product.delete-permanently');
+                Route::get('restore', 'ProductStatusController@restore')->name('product.restore');
+            });
+        });
     });
 });
