@@ -43,11 +43,15 @@ return [
          * The name of the super administrator role
          */
         'admin_role' => 'administrator',
+        /*
+         * The name of the super administrator role
+         */
+        'executive_role' => 'executive',
 
         /*
          * The default role all new registered users get added to
          */
-        'default_role' => 'administrator',
+        'default_role' => 'executive',
 
         /*
          * Whether or not new users need to be approved by an administrator before logging in

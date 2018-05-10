@@ -48,6 +48,34 @@ return [
                 ],
             ],
 
+            'donations' => [
+                'create'      => 'Crear Donación',
+                'edit'        => 'Modificar Donación',
+                'foods'       => 'Alimentos',
+                'babies'      => 'Bebes',
+                'clothes'     => 'Ropa',
+                'furniture'   => 'Muebles',
+                'supplies'    => 'Utiles escolares',
+                'books'       => 'Libros',
+                'toys'        => 'Juguetes',
+                'tools'       => 'Herramienta',
+
+                'profession'  => 'Profesion',
+                'job'         => 'Oficio',
+
+                'internal'       => 'Interno',
+                'external'      => 'Externo',
+
+                'table' => [
+                    'number_of_users' => 'Número de Usuarios',
+                    'permissions'     => 'Permisos',
+                    'role'            => 'Rol',
+                    'sort'            => 'Orden',
+                    'total'           => 'Todos los Roles',
+                ],
+            ],
+
+
             'products' => [
                 'active'     => 'Productos activos',
                 'create'     => 'Crear Producto',
@@ -57,6 +85,28 @@ return [
 
                 'table' => [
                     'name'            => 'Productos',
+                    'description'     => 'Descripcion',
+                    'category'        => 'Categoria',
+                    'stock'           => 'Vendidos',
+                    'date_end'        => 'Fecha',
+                    'price'           => 'Precio',
+                    'sort'            => 'Orden',
+                    'last_updated'    => 'Última modificación',
+                    'total'           => 'Todos los Productos',
+                    'user_id'         => 'Usuario asignado',
+                ],
+            ],
+
+
+            'foods' => [
+                'active'     => 'Alimentos activos',
+                'create'     => 'Crear una Donación de Alimentos',
+                'edit'       => 'Modificar una Donación de Alimentos',
+                'management' => 'Administración Donación de Alimentos',
+                'deleted'    => 'Donación de Alimentos eliminados',
+
+                'table' => [
+                    'name'            => 'Alimentos',
                     'description'     => 'Descripcion',
                     'category'        => 'Categoria',
                     'stock'           => 'Vendidos',

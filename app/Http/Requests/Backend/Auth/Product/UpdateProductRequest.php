@@ -16,7 +16,7 @@ class UpdateProductRequest extends FormRequest
      */
     public function authorize()
     {
-        return $this->user()->isAdmin();
+        return $this->user()->isExecutive();
     }
 
     /**
@@ -29,10 +29,11 @@ class UpdateProductRequest extends FormRequest
         return [
             'name'     => 'required|max:191',
             'description'  => 'required|max:191',
-            'price' => 'required',
+            'status' => 'required',
+            'category' => 'required',
+            'sub_category' => 'required',
             'category' => 'required',
             'stock' => 'required',
-            'date_end' => 'required|date',
         ];
     }
 }

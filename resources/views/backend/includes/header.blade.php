@@ -43,14 +43,10 @@
                 <div class="dropdown-header text-center">
                     <strong>Heading</strong>
                 </div>
-                <a class="dropdown-item" href="#"><i class="fa fa-bell-o"></i> Link<span class="badge badge-info">0</span></a>
-                <a class="dropdown-item" href="#"><i class="fa fa-envelope-o"></i> Link</a>
+               
 
-                <div class="dropdown-header text-center">
-                    <strong>Heading</strong>
-                </div>
-                <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Link</a>
-                <a class="dropdown-item" href="#"><i class="fa fa-file"></i> Link<span class="badge badge-primary">0</span></a>
+                <a class="dropdown-item"  href="{{ route('frontend.user.account') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.user.account')) }}"> <i class="fa fa-bell-o"> </i>{{ __('navs.frontend.user.account') }}</a>
+
                 <a class="dropdown-item" href="{{ route('frontend.auth.logout') }}"><i class="fa fa-lock"></i> {{ __('navs.general.logout') }}</a>
             </div>
         </li>

@@ -23,7 +23,7 @@ trait ProductMethod
                     $size = config('gravatar.default.size');
                 }
 
-                return gravatar()->get($this->email, ['size' => $size]);
+                return gravatar()->get($this->user->email, ['size' => $size]);
 
             case 'storage':
                 return url('storage/'.$this->image_location);

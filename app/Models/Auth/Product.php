@@ -37,11 +37,15 @@ class Product extends Model
         'image_type',
         'image_location',
         'active',
-        'price',
+        'fecha',
         'category',
-        'date_end',
+        'direccion',
+        'lat',
+        'lng',
         'stock',
         'user_id',
+        'status',
+        'number_product',
         
     ];
 

@@ -76,13 +76,11 @@ Route::group([
          */
         Route::group(['namespace' => 'Product'], function () {
 
-             Route::get('product/deleted', 'ProductStatusController@getDeleted')->name('product.deleted');
-
+            Route::get('product/deleted', 'ProductStatusController@getDeleted')->name('product.deleted');
             /*
              * Product CRUD
              */
             Route::resource('product', 'ProductController');
-
 
             /*
              * Deleted Product
@@ -90,6 +88,52 @@ Route::group([
             Route::group(['prefix' => 'product/{deletedProduct}'], function () {
                 Route::get('delete', 'ProductStatusController@delete')->name('product.delete-permanently');
                 Route::get('restore', 'ProductStatusController@restore')->name('product.restore');
+            });
+        });
+    });
+
+    Route::group([
+        'prefix'     => 'donation',
+        'as'         => 'donation.',
+    ], function () {
+        
+        /*
+         * Donation Management
+         */
+        Route::group(['namespace' => 'Donation'], function () {
+
+            Route::get('donation/deleted', 'DonationController@getDeleted')->name('donation.deleted');
+            /*
+             * Donation CRUD
+             */
+            Route::resource('donation', 'DonationController');
+
+            /*
+             * Deleted Donation
+             */
+            Route::group(['prefix' => 'donation/{deletedDonation}'], function () {
+                Route::get('delete', 'DonationController@delete')->name('donation.delete-permanently');
+                Route::get('restore', 'DonationController@restore')->name('donation.restore');
+            });
+        });
+
+        /*
+         * Alimentos Management
+         */
+        Route::group(['namespace' => 'Food'], function () {
+
+            Route::get('food/deleted', 'FoodController@getDeleted')->name('food.deleted');
+            /*
+             * Food CRUD
+             */
+            Route::resource('food', 'FoodController');
+
+            /*
+             * Deleted Food
+             */
+            Route::group(['prefix' => 'food/{deletedFood}'], function () {
+                Route::get('delete', 'FoodController@delete')->name('food.delete-permanently');
+                Route::get('restore', 'FoodController@restore')->name('food.restore');
             });
         });
     });

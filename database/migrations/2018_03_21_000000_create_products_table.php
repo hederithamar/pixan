@@ -23,12 +23,22 @@ class CreateProductsTable extends Migration
             $table->string('name')->nullable();
             $table->string('description')->nullable();
             $table->string('category')->nullable();
-            $table->dateTime('date_end');
+            $table->string('sub_category')->nullable();
+            $table->string('genero')->nullable();
             $table->integer('stock')->nullable();
+            $table->integer('number_product')->nullable();
             $table->string('image_type')->default('gravatar');
             $table->string('image_location')->nullable();
             $table->tinyInteger('active')->default(1)->unsigned();
-            $table->float('price', 255, 4);
+            $table->string('status')->nullable();
+            $table->string('direccion')->nullable();
+            $table->float('lat', 255, 14)->nullable();
+            $table->float('lng', 255, 14)->nullable();
+            $table->dateTime('fecha')->nullable();
+            $table->dateTime('date_start')->nullable();
+            $table->dateTime('date_end')->nullable();
+            $table->dateTime('date_start_geo')->nullable();
+            $table->dateTime('date_end_geo')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

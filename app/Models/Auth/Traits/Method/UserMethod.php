@@ -76,6 +76,14 @@ trait UserMethod
     }
 
     /**
+     * @return mixed
+     */
+    public function isExecutive()
+    {
+        return $this->hasRole(config('access.users.executive_role'));
+    }
+
+    /**
      * @return bool
      */
     public function isActive()

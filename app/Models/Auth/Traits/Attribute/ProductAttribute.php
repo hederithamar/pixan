@@ -48,6 +48,14 @@ trait ProductAttribute
     /**
      * @return string
      */
+    public function getEditFoodButtonAttribute()
+    {
+        return '<a href="'.route('admin.auth.donation.food.edit', $this).'" class="btn btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="'.__('buttons.general.crud.edit').'"></i></a>';
+    }
+
+    /**
+     * @return string
+     */
     public function getDeleteButtonAttribute()
     {
        
@@ -104,5 +112,24 @@ trait ProductAttribute
 			</div>
 		  </div>
 		</div>';
+    }
+
+    public function getActionFoodButtonsAttribute()
+    {
+        
+        return '
+        <div class="btn-group btn-group-sm" role="group" aria-label="Product Actions">
+          '.$this->show_button.'
+          '.$this->edit_food_button.'
+        
+          <div class="btn-group" role="group">
+            <button id="productActions" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              More
+            </button>
+            <div class="dropdown-menu" aria-labelledby="productActions">
+              '.$this->delete_button.'
+            </div>
+          </div>
+        </div>';
     }
 }

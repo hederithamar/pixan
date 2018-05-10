@@ -23,36 +23,79 @@
 
         <div class="row mt-12">
             
+@foreach ($products as $product)
+<div class="col col-sm-3 order-1 order-sm-3  mb-3">
+    <div class="card-body">
+        <ul class="nav nav-tabs" id="myTab{{$product->id}}" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home{{$product->id}}" role="tab" aria-controls="home" aria-selected="true"><i class="fa fa-heart"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile{{$product->id}}" role="tab" aria-controls="profile" aria-selected="false"><i class="fa fa-info-circle"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact{{$product->id}}" role="tab" aria-controls="contact" aria-selected="false"><i class="fa fa-truck"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="action-tab" data-toggle="tab" href="#action{{$product->id}}" role="tab" aria-controls="action" aria-selected="false"><i class="fa fa-gear"></i></a>
+        </li>
+        </ul>
+        <div class="tab-content" id="myTab{{$product->id}}Content">
+            <div class="tab-pane fade show active" id="home{{$product->id}}" role="tabpanel" aria-labelledby="home-tab">
+                <h5>
+                    <small class="text-muted">
+                      {{ $product->name }}<br/>
+                    </small>
+                </h5>
                 
-                        @foreach ($products as $product)
-                        <div class="col col-sm-2 order-1 order-sm-2  mb-3">
-                            <div class="card mb-2 bg-light">
-                                <img class="card-img-top" src="{{ $logged_in_user->picture }}" alt="Profile Picture">
+                <img class="card-img-top" src="{{ $product->picture }}" alt="Profile Picture" height="150" width="150">
+            </div>
 
-                                <div class="card-body">
-                                    <h4 class="card-title">
-                                        {{ $product->name }}<br/>
-                                    </h4>
+            <div class="tab-pane fade" id="profile{{$product->id}}" role="tabpanel" aria-labelledby="profile-tab">
+                
+                <div class="callout callout-info">
+                    <strong class="h4">{{ $product->category }}</strong>
+                    <br>
+                    <small class="text-muted"><i class="fa fa-info"></i> {{ $product->sub_category }}</small>
+                    <br>
+                    <small class="text-muted"><i class="fa fa-info"></i> {{ $product->description }}</small>
+                    <br>
+                    <small class="text-muted"><i class="fa fa-info"></i> {{ $product->number_product }}</small>
+                    <br>
+                    <small class="text-muted"><i class="fa fa-user"></i> {{ $product->user->name }}</small>
+                    <br>
+                    <div class="chart-wrapper">
+                        <canvas id="sparkline-chart-1" width="100" height="30"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="contact{{$product->id}}" role="tabpanel" aria-labelledby="contact-tab">
+               
+                <div class="callout callout-warning">
+                    <small class="text-muted"><i class="fa fa-map"></i>  {{ $product->direccion }}</small>
+                    <br>
+                    <small class="text-muted"><i class="fa fa-calendar"></i>  {{ $product->fecha }}</small>
+                    <br>
+                    <br>
+                    <strong class="h4">{{ $product->status }}</strong>
+                    
+                    <div class="chart-wrapper">
+                        <canvas id="sparkline-chart-1" width="100" height="30"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="action{{$product->id}}" role="tabpanel" aria-labelledby="action-tab">
+               
+                <div class="callout callout-success">
+                    {!! $product->action_buttons !!}
+                </div>
+            </div>
 
-                                    <p class="card-text">
-                                        <small>
-                                            <i class="fa fa-info"></i> {{ $product->description }}<br/>
-                                            <i class="fa fa-info"></i> {{ $product->category }}<br/>
-                                            <i class="fa fa-info"></i> $ {{ $product->price }}<br/>
-                                            
-                                        </small>
-                                    </p>
-
-                                    <p class="card-text">
-
-                                       {!! $product->action_buttons !!}
-                                    
-                                    </p>
-                                </div>
-                            </div>
-                        </div><!--col-md-4-->
+        </div>
+    </div>
+</div><!--col-md-4-->
                             
-                        @endforeach
+            @endforeach
                     
         </div><!--row-->
         <div class="row">

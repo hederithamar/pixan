@@ -15,8 +15,11 @@ return [
 
     'backend' => [
         'access' => [
-            'title' => 'Administración',
-
+            'title'     => 'Administración',
+            'donation'  => 'Donaciones',
+            'service'   => 'Servicios',
+            'voluntary' => 'Voluntarios',
+            
             'roles' => [
                 'all'        => 'Todos los Roles',
                 'create'     => 'Nuevo Rol',

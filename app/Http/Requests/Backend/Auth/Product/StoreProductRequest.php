@@ -17,7 +17,7 @@ class StoreProductRequest extends FormRequest
      */
     public function authorize()
     {
-        return $this->user()->isAdmin();
+        return $this->user()->isExecutive();
     }
 
     /**
@@ -30,10 +30,10 @@ class StoreProductRequest extends FormRequest
         return [
             'name'     => 'required|max:191',
             'description'  => 'required|max:191',
-            'price' => 'required',
-            'category' => 'required',
-            'stock' => 'required',
-            'date_end' => 'required|date',
+            'direccion' => 'required',
+            'fecha' => 'required',
+            'hora' => 'required',
+            'avatar_location' => 'sometimes|image|max:191',
         ];
     }
 }

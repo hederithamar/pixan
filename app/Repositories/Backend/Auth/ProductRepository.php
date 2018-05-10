@@ -48,6 +48,22 @@ class ProductRepository extends BaseRepository
     {
         return $this->model
             ->with('user')
+            ->active()
+            ->orderBy($orderBy, $sort)
+            ->paginate($paged);
+    }
+
+    /**
+     * @param int    $paged
+     * @param string $orderBy
+     * @param string $sort
+     *
+     * @return mixed
+     */
+    public function getActiveAuthPaginated($paged = 25, $orderBy = 'created_at', $sort = 'desc') : LengthAwarePaginator
+    {
+        return $this->model
+            ->with('user')
             ->where('user_id', Auth::user()->id)
             ->active()
             ->orderBy($orderBy, $sort)
@@ -93,19 +109,26 @@ class ProductRepository extends BaseRepository
      *
      * @return Product
      */
-    public function create(array $data) : Product
+    public function create(array $data, $image = false) : Product
     {
-        return DB::transaction(function () use ($data) {
+        return DB::transaction(function () use ($data, $image) {
             $product = parent::create([
-                'name' => $data['name'],
-                'description' => $data['description'],
-                'category' => $data['category'],
-                'date_end' => $data['date_end'],
-                'stock' => $data['stock'],
-                'price' => $data['price'],
-                'image_location' => $data['image_location'],
-                'user_id' => $data['user_id'],
-                'active' => isset($data['active']) && $data['active'] == '1' ? 1 : 0,
+                'category'        => $data['category'],
+                'sub_category'    => $data['sub_category'],
+                'genero'          => $data['genero'],
+                'name'            => $data['name'],
+                'description'     => $data['description'],
+                'stock'           => $data['stock'],
+                'number_product'  => $data['number_product'],
+                'active'          => 1,
+                'status'          => $data['status'],
+                'fecha'           => $data['fecha']." ".$data['hora'],
+                'direccion'       => $data['direccion'],
+                'lat'             => $data['lat'],
+                'lng'             => $data['lng'],
+                'user_id'         => Auth::user()->id,
+                'image_type'      => 'storage',
+                'image_location'  => $image->store('/products', 'public'),
             ]);
 
             if ($product) {
@@ -129,16 +152,24 @@ class ProductRepository extends BaseRepository
     {
         return DB::transaction(function () use ($product, $data) {
             if ($product->update([
-                'name' => $data['name'],
-                'description' => $data['description'],
-                'price' => $data['price'],
+                'category'        => $data['category'],
+                'sub_category'    => $data['sub_category'],
+                'name'            => $data['name'],
+                'description'     => $data['description'],
+                'stock'           => $data['stock'],
+                'number_product'  => $data['number_product'],
+                'active'          => 1,
+                'status'          => $data['status'],
+                'direccion'       => $data['direccion'],
+                'lat'             => $data['lat'],
+                'lng'             => $data['lng'],
                 
             ])) {
                
 
-                event(new ProductUpdated($user));
+                event(new ProductUpdated($product));
 
-                return $user;
+                return $product;
             }
 
             throw new GeneralException(__('exceptions.backend.access.products.update_error'));

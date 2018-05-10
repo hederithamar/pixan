@@ -107,14 +107,7 @@ class ProductController extends Controller
      */
     public function update(Product $product, UpdateProductRequest $request)
     {
-        $this->productRepository->update($product, $request->only(
-            'first_name',
-            'last_name',
-            'email',
-            'timezone',
-            'roles',
-            'permissions'
-        ));
+        $this->productRepository->update($product, $request->all());
 
         return redirect()->route('admin.auth.product.index')->withFlashSuccess(__('alerts.backend.products.updated'));
     }
