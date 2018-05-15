@@ -2326,7 +2326,7 @@
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8",
+                "php": "^5.5.9|>=7.0.0",
                 "symfony/debug": "~2.8|~3.0|~4.0",
                 "symfony/polyfill-mbstring": "~1.0"
             },
@@ -2448,7 +2448,7 @@
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8",
+                "php": "^5.5.9|>=7.0.0",
                 "psr/log": "~1.0"
             },
             "conflict": {
@@ -2567,7 +2567,7 @@
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8"
+                "php": "^5.5.9|>=7.0.0"
             },
             "type": "library",
             "extra": {
@@ -2616,7 +2616,7 @@
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8",
+                "php": "^5.5.9|>=7.0.0",
                 "symfony/polyfill-mbstring": "~1.1",
                 "symfony/polyfill-php70": "~1.6"
             },
@@ -2670,7 +2670,7 @@
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8",
+                "php": "^5.5.9|>=7.0.0",
                 "psr/log": "~1.0",
                 "symfony/debug": "~2.8|~3.0|~4.0",
                 "symfony/event-dispatcher": "~2.8|~3.0|~4.0",
@@ -2876,7 +2876,7 @@
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8"
+                "php": "^5.5.9|>=7.0.0"
             },
             "type": "library",
             "extra": {
@@ -2925,7 +2925,7 @@
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8"
+                "php": "^5.5.9|>=7.0.0"
             },
             "conflict": {
                 "symfony/config": "<2.8",
@@ -3003,7 +3003,7 @@
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8",
+                "php": "^5.5.9|>=7.0.0",
                 "symfony/polyfill-mbstring": "~1.0"
             },
             "conflict": {
@@ -3071,7 +3071,7 @@
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8",
+                "php": "^5.5.9|>=7.0.0",
                 "symfony/polyfill-mbstring": "~1.0"
             },
             "conflict": {
@@ -5193,7 +5193,7 @@
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8"
+                "php": "^5.5.9|>=7.0.0"
             },
             "require-dev": {
                 "symfony/finder": "~2.8|~3.0|~4.0",
