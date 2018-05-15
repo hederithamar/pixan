@@ -27,14 +27,14 @@
                             <div class="col-md-4">
                                 {{ html()->label(__('validation.attributes.backend.access.foods.category'))->class('col-md-12 form-control-label')->for('category') }}
 
-                                <select name="category" id="category" class="form-control" required="required">
+                                <select name="category" id="category" class="js-example-responsive " required="required">
                                      <option value="Alimentos">Alimentos</option>      
                                 </select>
                             </div><!--col-->
                             <div class="col-md-4">
                                 {{ html()->label(__('validation.attributes.backend.access.foods.sub_category'))->class('col-md-12 form-control-label')->for('sub_category') }}
 
-                                <select name="sub_category" id="sub_category" class="form-control" required="required">
+                                <select name="sub_category" id="sub_category" class="js-example-responsive " required="required">
                                    
                                         <option value="Enlatados">Enlatados</option>
                                         <option value="Enbolsados">Enbolsados</option>
@@ -46,7 +46,7 @@
                             <div class="col-md-4">
                                 {{ html()->label(__('validation.attributes.backend.access.foods.status'))->class('col-md-12 form-control-label')->for('status') }}
 
-                                <select name="status" id="status" class="form-control" >
+                                <select name="status" id="status" class="js-example-responsive " >
                                      <option value="En espera">En espera</option>
                                     @if ($logged_in_user->isAdmin())
                                         <option value="Aceptada">Aceptada</option>
@@ -89,9 +89,9 @@
                 
                         <div class="form-group row">
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <div class="form-group row">
-                                    <div class="col-md-5">
+                                    <div class="col-md-6">
                                          {{ html()->label(__('validation.attributes.backend.access.foods.stock'))->class('col-md-12 form-control-label')->for('stock') }}
 
 
@@ -101,7 +101,7 @@
                                             ->attribute('maxlength', 191)
                                             ->required() }}
                                     </div><!--col-->
-                                    <div class="col-md-5">
+                                    <div class="col-md-6">
                                          {{ html()->label(__('validation.attributes.backend.access.foods.number_product'))->class('col-md-12 form-control-label')->for('stock') }}
 
 
@@ -123,23 +123,27 @@
                                         </div><!--col-->
                                     @endif
                                 </div><!--col-->
-                                <div class="col-md-12 row">
-                                    {{ html()->label(__('validation.attributes.backend.access.foods.date'))->class('col-md-12 form-control-label')->for('date') }}
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                        {{ html()->label(__('validation.attributes.backend.access.foods.date'))->class('col-md-12 form-control-label')->for('date') }}
 
-                                    {{ html()->text('fecha')
-                                        ->class('form-control')
-                                        ->attribute('maxlength', 191)
-                                        ->required() }}
-                                </div><!--col-->
-                                <div class="col-md-12 row">
-                                    {{ html()->label(__('validation.attributes.backend.access.foods.hour'))->class('col-md-12 form-control-label')->for('hour') }}
+                                        {{ html()->text('fecha')
+                                            ->class('form-control')
+                                            ->attribute('maxlength', 191)
+                                            ->required() }}
+                                    </div><!--col-->
+                                     <div class="col-md-6">
+                                        {{ html()->label(__('validation.attributes.backend.access.foods.hour'))->class('col-md-12 form-control-label')->for('hour') }}
 
-                                    {{ html()->text('hora')
-                                        ->class('form-control')
-                                        ->attribute('maxlength', 191)
-                                        ->required() }}
+                                        {{ html()->text('hora')
+                                            ->class('form-control')
+                                            ->attribute('maxlength', 191)
+                                            ->required() }}
+                                    </div><!--col-->
                                 </div><!--col-->
-                                <div class="col-md-12 row">
+                               
+                                <div class="form-group row">
+                                    <div class="col-md-12">
                                     {{ html()->label(__('validation.attributes.backend.access.foods.direccion'))->class('col-md-12 form-control-label')->for('direccion') }}
 
                                     {{ html()->text('direccion')
@@ -147,6 +151,7 @@
                                         ->placeholder(__('validation.attributes.backend.access.foods.direccion_input'))
                                         ->attribute('maxlength', 191)
                                         ->required() }}
+                                    </div><!--col-->
                                 </div><!--col-->
                                <div class="form-group row">
                                     <div class="col-md-6">
@@ -169,10 +174,10 @@
                                
                             </div><!--col-->
                             
-                            <div class="col-xs-12 col-sm-6 col-md-6 form-group"> 
+                            <div class="col-xs-12 col-sm-12 col-md-4 form-group"> 
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                      <!-- div donde se dibuja el mapa-->
-                                    <div id="map_canvas" style="width:420px;height:300px;">
+                                    <div id="map_canvas" style="width:220px;height:320px;">
                                         <div id="crosshair"></div>
                                     </div>
                                 </div>
