@@ -53,6 +53,7 @@ class ProductRepository extends BaseRepository
             ->paginate($paged);
     }
 
+
     /**
      * @param int    $paged
      * @param string $orderBy
@@ -60,11 +61,12 @@ class ProductRepository extends BaseRepository
      *
      * @return mixed
      */
-    public function getActiveAuthPaginated($paged = 25, $orderBy = 'created_at', $sort = 'desc') : LengthAwarePaginator
+    public function getActiveAuthPaginated($paged = 25, $orderBy = 'created_at', $sort = 'desc', $category = 'Alimentos') : LengthAwarePaginator
     {
         return $this->model
             ->with('user')
             ->where('user_id', Auth::user()->id)
+            ->where('category', $category)
             ->active()
             ->orderBy($orderBy, $sort)
             ->paginate($paged);
@@ -127,9 +129,15 @@ class ProductRepository extends BaseRepository
                 'lat'             => $data['lat'],
                 'lng'             => $data['lng'],
                 'user_id'         => Auth::user()->id,
-                'image_type'      => 'storage',
-                'image_location'  => $image->store('/products', 'public'),
             ]);
+
+            if ($image) {
+                $product->avatar_location = 'storage';
+                $product->avatar_location = $image->store('/products', 'public');
+            } else {
+                // No image being passed
+                $product->avatar_location = null;
+            }
 
             if ($product) {
                 

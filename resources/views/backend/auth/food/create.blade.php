@@ -195,7 +195,7 @@
                                     </div><!--form-group-->
 
                                     <div class="form-group hidden" id="image_location">
-                                        {{ html()->file('image_location')->class('form-control')->accept('image/*;capture=camera') }}
+                                        {{ html()->file('image_location')->class('form-control') }}
                                     </div><!--form-group-->
                                 </div><!--col-->
                         </div><!--form-group-->

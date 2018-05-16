@@ -19,25 +19,31 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
+                        <a href="{{ route('admin.auth.donation.donation.index') }}">
                         <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=Como funciona" alt="Como funciona [800x400]" src="https://www.donaunicef.org.mx/wp-content/uploads/2016/10/Banner1300x600regalosbg.001.jpeg" data-holder-rendered="true">
                         <div class="carousel-caption d-none d-md-block">
                             <h3>¿Como funciona?</h3>
                             <p>Enterete como puedes ayudar.</p>
                         </div>
+                        </a>
                     </div>
                     <div class="carousel-item">
+                         <a href="{{ route('admin.auth.donation.service.index') }}">
                         <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide [800x400]" src="https://donaunicef.org.mx/wp-content/uploads/2016/10/background-formas.jpg" data-holder-rendered="true">
                         <div class="carousel-caption d-none d-md-block">
                             <h3>¿Puedo ayudar?</h3>
                             <p>Claro que si, enterate.</p>
                         </div>
+                        </a>
                     </div>
                     <div class="carousel-item">
+                        <a href="{{ route('admin.auth.donation.voluntary.index') }}">
                         <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide [800x400]" src="https://donaunicef.org.mx/wp-content/uploads/2016/10/background-educacion-1.jpg" data-holder-rendered="true">
                         <div class="carousel-caption d-none d-md-block">
                             <h3>Evidencia</h3>
                             <p>Obtenevidencia de tu ayuda.</p>
                         </div>
+                        </a>
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">

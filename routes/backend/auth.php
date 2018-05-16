@@ -101,20 +101,29 @@ Route::group([
          * Donation Management
          */
         Route::group(['namespace' => 'Donation'], function () {
-
-            Route::get('donation/deleted', 'DonationController@getDeleted')->name('donation.deleted');
             /*
              * Donation CRUD
              */
             Route::resource('donation', 'DonationController');
-
+        });
+        /*
+         * Donation Management
+         */
+        Route::group(['namespace' => 'Service'], function () {
             /*
-             * Deleted Donation
+             * Donation CRUD
              */
-            Route::group(['prefix' => 'donation/{deletedDonation}'], function () {
-                Route::get('delete', 'DonationController@delete')->name('donation.delete-permanently');
-                Route::get('restore', 'DonationController@restore')->name('donation.restore');
-            });
+            Route::resource('service', 'ServiceController');
+        });
+
+        /*
+         * Donation Management
+         */
+        Route::group(['namespace' => 'Voluntary'], function () {
+            /*
+             * Donation CRUD
+             */
+            Route::resource('voluntary', 'VoluntaryController');
         });
 
         /*
@@ -136,5 +145,26 @@ Route::group([
                 Route::get('restore', 'FoodController@restore')->name('food.restore');
             });
         });
+
+        /*
+         * Ropa Management
+         */
+        Route::group(['namespace' => 'Clothes'], function () {
+
+            Route::get('clothes/deleted', 'ClothesController@getDeleted')->name('clothes.deleted');
+            /*
+             * Clothes CRUD
+             */
+            Route::resource('clothes', 'ClothesController');
+
+            /*
+             * Deleted Clothes
+             */
+            Route::group(['prefix' => 'clothes/{deletedClothes}'], function () {
+                Route::get('delete', 'ClothesController@delete')->name('clothes.delete-permanently');
+                Route::get('restore', 'ClothesController@restore')->name('clothes.restore');
+            });
+        });
+
     });
 });

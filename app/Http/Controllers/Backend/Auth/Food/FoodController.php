@@ -42,7 +42,7 @@ class FoodController extends Controller
     public function index(ManageProductRequest $request)
     {
         return view('backend.auth.food.index')
-            ->withProducts($this->productRepository->getActiveAuthPaginated(25, 'id', 'asc'));
+            ->withProducts($this->productRepository->getActiveAuthPaginated(25, 'id', 'asc', 'Alimentos'));
     }
 
     /**

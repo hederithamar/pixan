@@ -4,9 +4,7 @@
             <a class="btn dropdown-toggle" href="#" role="button" id="breadcrumb-dropdown-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ __('menus.backend.access.products.main') }}</a>
 
             <div class="dropdown-menu" aria-labelledby="breadcrumb-dropdown-1">
-                <a class="dropdown-item" href="{{ route('admin.auth.product.index') }}">{{ __('menus.backend.access.products.all') }}</a>
-                <a class="dropdown-item" href="{{ route('admin.auth.product.create') }}">{{ __('menus.backend.access.products.create') }}</a>
-                <a class="dropdown-item" href="{{ route('admin.auth.product.deleted') }}">{{ __('menus.backend.access.products.deleted') }}</a>
+                <a class="dropdown-item" href="{{ route('admin.auth.donation.donation.index') }}">{{ __('menus.backend.access.donations.all') }}</a>
             </div>
         </div><!--dropdown-->
 

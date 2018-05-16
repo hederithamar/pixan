@@ -65,6 +65,8 @@ return [
 
                 'internal'       => 'Interno',
                 'external'      => 'Externo',
+                'management' => 'Administración de Donaciones',
+                'active'     => 'Donaciones activos',
 
                 'table' => [
                     'number_of_users' => 'Número de Usuarios',
@@ -73,6 +75,17 @@ return [
                     'sort'            => 'Orden',
                     'total'           => 'Todos los Roles',
                 ],
+            ],
+            'services' => [
+                'active'     => 'Servicios activos',
+                'management' => 'Administración de Servicios',
+            ],
+
+            'voluntaries' => [
+                'active'     => 'Voluntarios activos',
+                'create'     => 'Crear Producto',
+                'edit'       => 'Modificar Producto',
+                'management' => 'Administración de Voluntarios',
             ],
 
 
@@ -104,6 +117,28 @@ return [
                 'edit'       => 'Modificar una Donación de Alimentos',
                 'management' => 'Administración Donación de Alimentos',
                 'deleted'    => 'Donación de Alimentos eliminados',
+
+                'table' => [
+                    'name'            => 'Alimentos',
+                    'description'     => 'Descripcion',
+                    'category'        => 'Categoria',
+                    'stock'           => 'Vendidos',
+                    'date_end'        => 'Fecha',
+                    'price'           => 'Precio',
+                    'sort'            => 'Orden',
+                    'last_updated'    => 'Última modificación',
+                    'total'           => 'Todos los Productos',
+                    'user_id'         => 'Usuario asignado',
+                ],
+            ],
+
+
+            'clothes' => [
+                'active'     => 'Ropa activos',
+                'create'     => 'Crear una Donación de Ropa',
+                'edit'       => 'Modificar una Donación de Ropa',
+                'management' => 'Administración Donación de Ropa',
+                'deleted'    => 'Donación de Ropa eliminados',
 
                 'table' => [
                     'name'            => 'Alimentos',

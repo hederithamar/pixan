@@ -47,32 +47,6 @@ class DonationController extends Controller
     }
 
     /**
-     * @param ManageProductRequest    $request
-     * @param UserRepository       $userRepository
-     * @param PermissionRepository $permissionRepository
-     *
-     * @return mixed
-     */
-    public function create(ManageProductRequest $request, UserRepository $userRepository, PermissionRepository $permissionRepository)
-    {
-        return view('backend.auth.product.create')
-            ->withUsers($userRepository->with('permissions')->get())
-            ->withPermissions($permissionRepository->get(['id', 'name']));
-    }
-
-    /**
-     * @param StoreProductRequest $request
-     *
-     * @return mixed
-     */
-    public function store(StoreProductRequest $request)
-    {   
-        $this->productRepository->create($request->all());
-
-        return redirect()->route('admin.auth.product.index')->withFlashSuccess(__('alerts.backend.products.created'));
-    }
-
-    /**
      * @param Product           $product
      * @param ManageProductRequest $request
      *
@@ -84,53 +58,4 @@ class DonationController extends Controller
             ->withProduct($product);
     }
 
-    /**
-     * @param Product              $product
-     * @param ManageProductRequest $request
-     * @param UserRepository       $userRepository
-     * @param PermissionRepository $permissionRepository
-     *
-     * @return mixed
-     */
-    public function edit(Product $product, ManageProductRequest $request, UserRepository $userRepository, PermissionRepository $permissionRepository)
-    {
-        return view('backend.auth.product.edit')
-            ->withProduct($product)
-            ->withUsers($userRepository->with('permissions')->get());
-    }
-
-    /**
-     * @param Product           $product
-     * @param UpdateProductRequest $request
-     *
-     * @return mixed
-     */
-    public function update(Product $product, UpdateProductRequest $request)
-    {
-        $this->productRepository->update($product, $request->only(
-            'first_name',
-            'last_name',
-            'email',
-            'timezone',
-            'roles',
-            'permissions'
-        ));
-
-        return redirect()->route('admin.auth.product.index')->withFlashSuccess(__('alerts.backend.products.updated'));
-    }
-
-    /**
-     * @param Product           $product
-     * @param ManageProductRequest $request
-     *
-     * @return mixed
-     */
-    public function destroy(Product $product, ManageProductRequest $request)
-    {
-        $this->productRepository->deleteById($product->id);
-
-        event(new ProductDeleted($product));
-
-        return redirect()->route('admin.auth.product.deleted')->withFlashSuccess(__('alerts.backend.products.deleted'));
-    }
 }
