@@ -126,8 +126,6 @@ class ProductRepository extends BaseRepository
                 'status'          => $data['status'],
                 'fecha'           => $data['fecha']." ".$data['hora'],
                 'direccion'       => $data['direccion'],
-                'lat'             => $data['lat'],
-                'lng'             => $data['lng'],
                 'user_id'         => Auth::user()->id,
                 'image_type'      => 'storage',
                 'image_location'  => $image->store('/products', 'public'),
