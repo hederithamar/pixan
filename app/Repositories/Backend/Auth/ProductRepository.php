@@ -134,8 +134,8 @@ class ProductRepository extends BaseRepository
             ]);
 
             if ($image) {
-                $product->avatar_location = 'storage';
-                $product->avatar_location = $image->store('/products', 'public');
+                $product->image_type = 'storage';
+                $product->image_location = $image->store('/products', 'public');
             } else {
                 // No image being passed
                 $product->avatar_location = null;
@@ -158,9 +158,12 @@ class ProductRepository extends BaseRepository
      *
      * @return Product
      */
-    public function update(Product $product, array $data) : Product
+    public function update(Product $product, array $data, $image = false) : Product
     {
-        return DB::transaction(function () use ($product, $data) {
+
+        
+
+        return DB::transaction(function () use ($product, $data, $image) {
             if ($product->update([
                 'category'        => $data['category'],
                 'sub_category'    => $data['sub_category'],
@@ -173,6 +176,9 @@ class ProductRepository extends BaseRepository
                 'direccion'       => $data['direccion'],
                 'lat'             => $data['lat'],
                 'lng'             => $data['lng'],
+                'evidence_text'   => $data['evidence_text'],
+                'evidence_type'      => 'storage',
+                'evidence_location'  => $image->store('/evidence', 'public'),
                 
             ])) {
                

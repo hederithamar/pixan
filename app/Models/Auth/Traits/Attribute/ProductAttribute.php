@@ -28,6 +28,14 @@ trait ProductAttribute
         return $this->getPicture();
     }
 
+    /**
+     * @return mixed
+     */
+    public function getEvidenceAttribute()
+    {
+        return $this->getEvidence();
+    }
+
 
     /**
      * @return string

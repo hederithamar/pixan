@@ -37,8 +37,9 @@
             <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact{{$product->id}}" role="tab" aria-controls="contact" aria-selected="false"><i class="fa fa-truck"></i></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="action-tab" data-toggle="tab" href="#action{{$product->id}}" role="tab" aria-controls="action" aria-selected="false"><i class="fa fa-gear"></i></a>
+            <a class="nav-link" id="evidence-tab" data-toggle="tab" href="#evidence{{$product->id}}" role="tab" aria-controls="action" aria-selected="false"><i class="fa fa-newspaper-o "></i></a>
         </li>
+    
         </ul>
         <div class="tab-content" id="myTab{{$product->id}}Content">
             <div class="tab-pane fade show active" id="home{{$product->id}}" role="tabpanel" aria-labelledby="home-tab">
@@ -67,6 +68,7 @@
                     <div class="chart-wrapper">
                         <canvas id="sparkline-chart-1" width="100" height="30"></canvas>
                     </div>
+                    {!! $product->action_buttons !!}
                 </div>
             </div>
             <div class="tab-pane fade" id="contact{{$product->id}}" role="tabpanel" aria-labelledby="contact-tab">
@@ -84,10 +86,12 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="action{{$product->id}}" role="tabpanel" aria-labelledby="action-tab">
+
+            <div class="tab-pane fade" id="evidence{{$product->id}}" role="tabpanel" aria-labelledby="evidence-tab">
                
+                <small class="text-muted"><i class="fa fa-check"></i> Su donación ha sido entregada a: {{ $product->evidence_text }}</small>
                 <div class="callout callout-success">
-                    {!! $product->action_buttons !!}
+                    <img class="card-img-top" src="{{ $product->evidence }}" alt="Profile Picture" height="150" width="150">
                 </div>
             </div>
 

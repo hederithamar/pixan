@@ -46,6 +46,9 @@ class Product extends Model
         'user_id',
         'status',
         'number_product',
+        'evidence_type',
+        'evidence_location',
+        'evidence_text',
         
     ];
 

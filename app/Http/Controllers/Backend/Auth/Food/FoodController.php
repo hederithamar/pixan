@@ -120,7 +120,7 @@ class FoodController extends Controller
             'timezone',
             'roles',
             'permissions'
-        ));
+        ), $request->has('evidence_location') ? $request->file('evidence_location') : false);
 
         return redirect()->route('admin.auth.product.index')->withFlashSuccess(__('alerts.backend.products.updated'));
     }

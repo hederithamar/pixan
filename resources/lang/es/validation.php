@@ -165,6 +165,7 @@ return [
                     'description'        => 'Descripcion del producto',
                     'price'              => '¿Que precio tiene tu producto?',
                     'user_id'            => 'Usuario Vinculado',
+                    'evidence_text'      => 'Escriba un mensaje a su donante',
                     'image'              => 'Imagen Vinculada',
                     'image_defect'       => 'Imagen por defecto',
                     'stock'              => '¿Cuantos productos quieres vender?',

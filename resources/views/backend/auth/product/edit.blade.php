@@ -3,7 +3,8 @@
 @section ('title', __('labels.backend.access.products.management') . ' | ' . __('labels.backend.access.products.edit'))
 
 @section('content')
-{{ html()->modelForm($product, 'PATCH', route('admin.auth.product.update', $product))->class('form-horizontal')->open() }}
+{{ html()->modelForm($product, 'PATCH', route('admin.auth.product.update', $product))->class('form-horizontal')->attribute('enctype', 'multipart/form-data')->open() }}
+
     <div class="card">
         <div class="card-body">
             <div class="row">
@@ -25,7 +26,9 @@
                                 {{ html()->label(__('validation.attributes.backend.access.foods.category'))->class('col-md-12 form-control-label')->for('category') }}
 
                                 <select name="category" id="category" class="form-control" required="required">
-                                     <option value="Alimentos">Alimentos</option>      
+                                     <option value="Alimentos">Alimentos</option>  
+                                     <option value="Ropa">Ropa</option>
+                                     <option value="Bebes">Bebes</option>  
                                 </select>
                             </div><!--col-->
                             <div class="col-md-4">
@@ -160,6 +163,31 @@
                                 </div>
                              </div>
                             
+                        </div><!--form-group-->
+
+                        <div class="form-group row">
+                            
+
+                            <div class="col-md-9">
+                                    <div class="form-group">
+                                        {{ html()->label(__('validation.attributes.backend.access.foods.image'))->for('image') }}
+                                       
+                                    </div><!--form-group-->
+
+                                    <div class="form-group hidden" id="image_location">
+                                        {{ html()->file('evidence_location')->class('form-control') }}
+                                    </div><!--form-group-->
+                            </div><!--col-->
+                            <div class="col-md-9">
+                                {{ html()->label(__('validation.attributes.backend.access.products.evidence_text'))->class('col-md-12 form-control-label')->for('name') }}
+
+                                {{ html()->text('evidence_text')
+                                    ->class('form-control')
+                                    ->placeholder(__('validation.attributes.backend.access.products.evidence_text'))
+                                    ->attribute('maxlength', 191)
+                                    ->required()
+                                    ->autofocus() }}
+                            </div><!--col-->
                         </div><!--form-group-->
 
                         <div class="form-group row">
