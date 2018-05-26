@@ -129,11 +129,13 @@ class ProductRepository extends BaseRepository
                 'lat'             => $data['lat'],
                 'lng'             => $data['lng'],
                 'user_id'         => Auth::user()->id,
+                'image_type'      => 'storage',
+                'image_location'  => $image->store('/products', 'public'),
             ]);
 
             if ($image) {
-                $product->avatar_location = 'storage';
-                $product->avatar_location = $image->store('/products', 'public');
+                $product->image_location = 'storage';
+                $product->image_location = $image->store('/products', 'public');
             } else {
                 // No image being passed
                 $product->avatar_location = null;
