@@ -100,6 +100,7 @@ class FoodController extends Controller
      */
     public function edit(Product $product, ManageProductRequest $request, UserRepository $userRepository, PermissionRepository $permissionRepository)
     {
+        
         return view('backend.auth.food.edit')
             ->withProduct($product)
             ->withUsers($userRepository->with('permissions')->get());

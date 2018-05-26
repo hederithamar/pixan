@@ -1,137 +1,148 @@
 @extends ('backend.layouts.app')
 
-@section ('title', __('labels.backend.access.products.management') . ' | ' . __('labels.backend.access.users.create'))
+@section ('title', __('labels.backend.access.voluntaries.management') . ' | ' . __('labels.backend.access.users.create'))
 
 @section('breadcrumb-links')
-    @include('backend.auth.product.includes.breadcrumb-links')
+    @include('backend.auth.voluntary.includes.breadcrumb-links')
 @endsection
 
 @section('content')
-    {{ html()->form('POST', route('admin.auth.product.store'))->class('form-horizontal')->open() }}
+    {{ html()->form('POST', route('admin.auth.donation.voluntary.store'))->class('form-horizontal')->attribute('enctype', 'multipart/form-data')->open() }}
         <div class="card">
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-5">
                         <h4 class="card-title mb-0">
-                            {{ __('labels.backend.access.products.management') }}
-                            <small class="text-muted">{{ __('labels.backend.access.products.create') }}</small>
+                            {{ __('labels.backend.access.voluntaries.management') }}
+                            <small class="text-muted">{{ __('labels.backend.access.voluntaries.create') }}</small>
                         </h4>
                     </div><!--col-->
                 </div><!--row-->
 
-                <hr />
+                <hr/>
 
                 <div class="row mt-4 mb-4">
                     <div class="col">
                         <div class="form-group row">
+                            <div class="col-md-4">
+                                {{ html()->label(__('validation.attributes.backend.access.voluntaries.category'))->class('col-md-12 form-control-label')->for('category') }}
+
+                                <select name="category" id="category" class="js-example-responsive " required="required">
+                                     <option value="Voluntario">Voluntario</option>      
+                                </select>
+                            </div><!--col-->
+                             <div class="col-md-4">
+                                {{ html()->label(__('validation.attributes.backend.access.babies.status'))->class('col-md-12 form-control-label')->for('status') }}
+
+                                <select name="status" id="status" class="js-example-responsive " >
+                                     <option value="En espera">En espera</option>
+                                    @if ($logged_in_user->isAdmin())
+                                        <option value="Aceptada">Aceptada</option>
+                                        
+                                    @endif
+
+                                </select>
+                            </div><!--col-->
+                        </div><!--col-->
+                        <div class="form-group row">
                            
                             <div class="col-md-6">
-                                {{ html()->label(__('validation.attributes.backend.access.products.name'))->class('col-md-12 form-control-label')->for('name') }}
+                                {{ html()->label(__('validation.attributes.backend.access.voluntaries.celphone'))->class('col-md-12 form-control-label')->for('celphone') }}
 
-                                {{ html()->text('name')
+                                {{ html()->text('celphone')
                                     ->class('form-control')
-                                    ->placeholder(__('validation.attributes.backend.access.products.name_input'))
+                                    ->placeholder(__('validation.attributes.backend.access.voluntaries.celphone'))
                                     ->attribute('maxlength', 191)
                                     ->required()
                                     ->autofocus() }}
                             </div><!--col-->
 
-                             <div class="col-md-6">
-                                {{ html()->label(__('validation.attributes.backend.access.products.category'))->class('col-md-12 form-control-label')->for('category') }}
-
-                                {{ html()->text('category')
-                                    ->class('form-control')
-                                    ->placeholder(__('validation.attributes.backend.access.products.category_input'))
-                                    ->attribute('maxlength', 191)
-                                    ->required() }}
-                            </div><!--col-->
-                        </div><!--form-group-->
-
-                        <div class="form-group row">
-                        
-                            <div class="col-md-12">
-                                {{ html()->label(__('validation.attributes.backend.access.products.description'))->class('col-md-12 form-control-label')->for('description') }}
-
-                                {{ html()->text('description')
-                                    ->class('form-control')
-                                    ->placeholder(__('validation.attributes.backend.access.products.description_input'))
-                                    ->attribute('maxlength', 191)
-                                    ->required() }}
-                            </div><!--col-->
-                        </div><!--form-group-->
-
-                         <div class="form-group row">
-                       
                             <div class="col-md-6">
-                                 {{ html()->label(__('validation.attributes.backend.access.products.stock'))->class('col-md-12 form-control-label')->for('stock') }}
+                                {{ html()->label(__('validation.attributes.backend.access.voluntaries.sexo'))->class('col-md-12 form-control-label')->for('sexo') }}
 
-
-                                {{ html()->text('stock')
+                                {{ html()->text('sexo')
                                     ->class('form-control')
-                                    ->placeholder(__('validation.attributes.backend.access.products.stock_input'))
+                                    ->placeholder(__('validation.attributes.backend.access.voluntaries.sexo'))
                                     ->attribute('maxlength', 191)
                                     ->required() }}
                             </div><!--col-->
 
-                            <div class="col-md-6">
-                                {{ html()->label(__('validation.attributes.backend.access.products.date_end'))->class('col-md-12 form-control-label')->for('date_end') }}
-
-                                {{ html()->text('date_end')
-                                    ->class('form-control')
-                                    ->placeholder(__('validation.attributes.backend.access.products.description_input'))
-                                    ->attribute('maxlength', 191)
-                                    ->required() }}
-                            </div><!--col-->
                         </div><!--form-group-->
 
                 
                         <div class="form-group row">
-                            <div class="col-md-6">
-                                {{ html()->label(__('validation.attributes.backend.access.products.price'))->class('col-md-12 form-control-label')->for('price') }}
 
-                                {{ html()->text('price')
-                                    ->class('form-control')
-                                    ->placeholder(__('validation.attributes.backend.access.products.price_input'))
-                                    ->attribute('maxlength', 191)
-                                    ->required() }}
-                            </div><!--col-->
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                         {{ html()->label(__('validation.attributes.backend.access.voluntaries.facebook'))->class('col-md-12 form-control-label')->for('facebook') }}
 
-                             <div class="col-md-6">
-                                {{ html()->label(__('validation.attributes.backend.access.products.user_id'))->class('col-md-12 form-control-label')->for('user_id') }}
-                                
-                                <select name="user_id" id="user_id" class="form-control" required="required">
-                                    @foreach ($users as $user)
-                                        <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div><!--col-->
-                        </div><!--form-group-->
 
-                        <div class="form-group row">
-                            <div class="col-md-3">
-                                {{ html()->label(__('validation.attributes.backend.access.products.active'))->class('col-md-12 form-control-label')->for('active') }}
+                                        {{ html()->text('facebook')
+                                            ->class('form-control')
+                                            ->placeholder(__('validation.attributes.backend.access.voluntaries.facebook'))
+                                            ->attribute('maxlength', 191)
+                                            ->required() }}
+                                    </div><!--col-->
+                                    <div class="col-md-6">
+                                         {{ html()->label(__('validation.attributes.backend.access.voluntaries.escolaridad'))->class('col-md-12 form-control-label')->for('escolaridad') }}
 
-                                <label class="switch switch-3d switch-primary">
-                                    {{ html()->checkbox('active', true, '1')->class('switch-input') }}
-                                    <span class="switch-label"></span>
-                                    <span class="switch-handle"></span>
-                                </label>
-                            </div><!--col-->
 
-                            <div class="col-md-9">
-                                    <div class="form-group">
-                                        {{ html()->label(__('validation.attributes.backend.access.products.image'))->for('image') }}
+                                        {{ html()->text('escolaridad')
+                                            ->class('form-control')
+                                            ->placeholder(__('validation.attributes.backend.access.voluntaries.escolaridad'))
+                                            ->attribute('maxlength', 191)
+                                            ->required() }}
+                                    </div><!--col-->
+                                    <div class="col-md-6">
+                                         {{ html()->label(__('validation.attributes.backend.access.voluntaries.carrera'))->class('col-md-12 form-control-label')->for('carrera') }}
 
-                                       
-                                    </div><!--form-group-->
 
-                                    <div class="form-group hidden" id="image_location">
-                                        {{ html()->file('image_location')->class('form-control') }}
-                                    </div><!--form-group-->
+                                        {{ html()->text('carrera')
+                                            ->class('form-control')
+                                            ->placeholder(__('validation.attributes.backend.access.voluntaries.carrera'))
+                                            ->attribute('maxlength', 191)
+                                            ->required() }}
+                                    </div><!--col-->
+                                    <div class="col-md-6">
+                                         {{ html()->label(__('validation.attributes.backend.access.voluntaries.habilidades'))->class('col-md-12 form-control-label')->for('habilidades') }}
+
+
+                                        {{ html()->text('habilidades')
+                                            ->class('form-control')
+                                            ->placeholder(__('validation.attributes.backend.access.voluntaries.habilidades'))
+                                            ->attribute('maxlength', 191)
+                                            ->required() }}
+                                    </div><!--col-->
+                                    <div class="col-md-6">
+                                         {{ html()->label(__('validation.attributes.backend.access.voluntaries.porque'))->class('col-md-12 form-control-label')->for('porque') }}
+
+
+                                        {{ html()->text('porque')
+                                            ->class('form-control')
+                                            ->placeholder(__('validation.attributes.backend.access.voluntaries.porque'))
+                                            ->attribute('maxlength', 191)
+                                            ->required() }}
+                                    </div><!--col-->
+                                    @if ($logged_in_user->isAdmin())
+                                        <div class="col-md-2">
+                                            {{ html()->label(__('validation.attributes.backend.access.voluntaries.active'))->class('col-md-12 form-control-label')->for('active') }}
+
+                                            <label class="switch switch-3d switch-primary">
+                                                {{ html()->checkbox('active', true, '1')->class('switch-input') }}
+                                                <span class="switch-label"></span>
+                                                <span class="switch-handle"></span>
+                                            </label>
+                                        </div><!--col-->
+                                    @endif
                                 </div><!--col-->
+                               
+                            </div><!--col-->
+                            
+                
+                            
                         </div><!--form-group-->
 
-                        
                     </div><!--col-->
                 </div><!--row-->
             </div><!--card-body-->
@@ -139,7 +150,7 @@
             <div class="card-footer clearfix">
                 <div class="row">
                     <div class="col">
-                        {{ form_cancel(route('admin.auth.product.index'), __('buttons.general.cancel')) }}
+                        {{ form_cancel(route('admin.auth.donation.voluntary.index'), __('buttons.general.cancel')) }}
                     </div><!--col-->
 
                     <div class="col text-right">
@@ -149,4 +160,274 @@
             </div><!--card-footer-->
         </div><!--card-->
     {{ html()->form()->close() }}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<script type="text/javascript">
+    var lat;
+    var lng;
+    var latlng;
+    var direccion;
+    var autocomplete;
+    var markers = [];
+    var map;
+    var geocoder;
+    var centerChangedLast;
+    var reverseGeocodedLast;
+    var currentReverseGeocodeResponse;
+
+    $(document).ready(function(){
+        //Inicializamos la función de google maps una vez el DOM este cargado
+        initialize();
+    });
+
+    function initialize(){
+        geocoder = new google.maps.Geocoder();
+
+        map_lat   = typeof map_lat !== 'undefined' ? map_lat : '23.634501';
+        map_lon   = typeof map_lon !== 'undefined' ? map_lon : '-102.5527839999999';
+        map_zoom  = typeof map_zoom !== 'undefined' ? map_zoom : 3;
+
+        latlng = new google.maps.LatLng(map_lat, map_lon);
+
+        var myOptions = {
+            zoom: map_zoom,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+        direccion = (document.getElementById('direccion'));
+
+        autocomplete = new google.maps.places.Autocomplete(direccion);
+        autocomplete.bindTo('bounds', map);
+        
+        
+        var marker = new google.maps.Marker({
+          map: map,
+          anchorPoint: new google.maps.Point(0, -29)
+        });
+
+        autocomplete.addListener('place_changed', function() {          
+          
+          addMarkerAtCenter(autocomplete);
+
+        });
+
+        setupEvents();
+        centerChanged();
+        var opt = { minZoom: 3 };
+        map.setOptions(opt);
+    }
+    
+    //callback al hacer clic en el marcador lo que hace es quitar y poner la animacion BOUNCE
+    function toggleBounce() {
+        openInfoWindow(marker);
+        if (marker.getAnimation() !== null) {
+            marker.setAnimation(null);
+        } else {
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+    }
+ 
+    //funcion que simplemente actualiza los campos del formulario
+    function updatePosition(latLng){     
+        jQuery('#lat').val(latLng.lat());
+        jQuery('#lng').val(latLng.lng());
+    }
+    
+    function setupEvents() {
+
+        reverseGeocodedLast = new Date();
+        centerChangedLast = new Date();
+
+        setInterval(function() {
+            if((new Date()).getSeconds() - centerChangedLast.getSeconds() > 1) {
+                if(reverseGeocodedLast.getTime() < centerChangedLast.getTime())
+                    reverseGeocode();
+                }
+            }, 1000);
+
+        google.maps.event.addListener(map, 'center_changed', centerChanged);
+        google.maps.event.addDomListener(document.getElementById('crosshair'),'dblclick', function() {
+            map.setZoom(map.getZoom() + 1);
+        });
+    }
+
+    function getCenterLatLngText() {
+        return '(' + map.getCenter().lat() +', '+ map.getCenter().lng() +')';
+    }
+
+    //Centra la ubucacion
+    function centerChanged() {
+        centerChangedLast = new Date();
+        var latlng = getCenterLatLngText();
+        var lat = map.getCenter().lat();
+        var lng = map.getCenter().lng();
+        document.getElementById('lat').value = lat;
+        document.getElementById('lng').value = lng;
+        reverseGeocode();
+    }
+
+    function reverseGeocode() {
+        reverseGeocodedLast = new Date();
+        geocoder.geocode({latLng:map.getCenter()},reverseGeocodeResult);
+    }
+
+    //obtiene la ubicacion por nombre
+    function reverseGeocodeResult(results, status) {
+        currentReverseGeocodeResponse = results;
+
+        if(status == 'OK') {
+            if(results.length == 0) {
+                document.getElementById('formatedAddress').innerHTML = 'Desconocido';          
+            } else {
+                document.getElementById('formatedAddress').innerHTML = results[0].formatted_address;
+                jQuery('#direccion').val(results[0].formatted_address);
+            }
+        } else {
+            document.getElementById('formatedAddress').innerHTML = 'Desconocido';        
+        }
+    }
+
+    //funcion para obtener la ubucacion del texto
+    function geocode() {
+        var address = document.getElementById("direccion").value;
+        geocoder.geocode({
+            'address': address,
+            'partialmatch': true
+        }, geocodeResult);
+    }
+
+    //funcion para obtener la ubicacion y poner un marcador al centro
+    function geocodeResult(results, status) {
+        if (status == 'OK' && results.length > 0) {
+            map.fitBounds(results[0].geometry.viewport);
+        } else {
+            alert("Geocode was not successful for the following reason: " + status);
+        }
+        addMarker();
+    }
+
+    //funcion para agregar un nuevo marcador
+    function addMarkerAtCenter(autocomplete) {
+        var infowindow = new google.maps.InfoWindow();
+        deleteMarkers();
+        infowindow.close();
+        var place = autocomplete.getPlace();
+        if (!place.geometry) {
+            // User entered the name of a Place that was not suggested and
+            // pressed the Enter key, or the Place Details request failed.
+            window.alert("No hay informacion sobre este lugar: '" + place.name + "'");
+            return;
+        }
+
+        // If the place has a geometry, then present it on a map.
+        if (place.geometry.viewport) {
+            map.fitBounds(place.geometry.viewport);
+        } else {
+            map.setCenter(place.geometry.location);
+            map.setZoom(17);  // Why 17? Because it looks good.
+        }
+        var image = "{{asset('frontend/icon/Home.png')}}";
+        
+        var marker = new google.maps.Marker({
+            position: map.getCenter(),
+            map: map,
+            icon: image,
+            animation: google.maps.Animation.DROP,
+            draggable: true //que el marcador se pueda arrastrar
+        });
+
+        var address = '';
+        if (place.address_components) {
+            address = [
+              (place.address_components[0] && place.address_components[0].short_name || ''),
+              (place.address_components[1] && place.address_components[1].short_name || ''),
+              (place.address_components[2] && place.address_components[2].short_name || '')
+            ].join(' ');
+        }
+
+        infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+        infowindow.open(map, marker);
+        marker.addListener( 'dragend', function (event)
+        {
+            //escribimos las coordenadas de la posicion actual del marcador dentro del input #coords
+            
+            jQuery('#lat').val(this.getPosition().lat());
+            jQuery('#lng').val(this.getPosition().lng());
+        });
+
+        markers.push(marker);
+    }
+
+    //funcion para agregar un nuevo marcador
+    function addMarker() {
+        
+        deleteMarkers();
+        var image = "{{asset('frontend/icon/Home.png')}}";
+        
+        var marker = new google.maps.Marker({
+            position: map.getCenter(),
+            map: map,
+            icon: image,
+            animation: google.maps.Animation.DROP,
+            draggable: true //que el marcador se pueda arrastrar
+        });
+
+        var text = 'Lat/Lng: ' + getCenterLatLngText();
+
+        if(currentReverseGeocodeResponse) {
+            var addr = '';
+            if(currentReverseGeocodeResponse.size == 0) {
+                addr = 'None';
+            } else {
+                addr = currentReverseGeocodeResponse[0].formatted_address;
+            }
+            text = text + '<br>' + 'Dirección: <br><strong>' + addr+ '</strong>';
+        }
+
+        var infowindow = new google.maps.InfoWindow({ content: text });
+
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.open(map,marker);
+        });
+
+
+        marker.addListener('click', toggleBounce);
+        
+      
+        marker.addListener( 'dragend', function (event)
+        {
+            //escribimos las coordenadas de la posicion actual del marcador dentro del input #coords
+            
+            jQuery('#lat').val(this.getPosition().lat());
+            jQuery('#lng').val(this.getPosition().lng());
+        });
+        markers.push(marker);
+
+    }
+
+    //funcion para poner todos los marcadores limpios
+    function setMapOnAll(map) {
+        for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(map);
+        }
+    }
+
+    //Funcion para limpiar un marcador
+    function clearMarkers() {
+        setMapOnAll(null);
+    }
+
+    //funcion paraeliminar un marcador
+    function deleteMarkers() {
+        clearMarkers();
+        markers = [];
+    }
+
+</script>
+
+
 @endsection

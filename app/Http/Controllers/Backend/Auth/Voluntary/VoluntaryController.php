@@ -3,16 +3,16 @@
 namespace App\Http\Controllers\Backend\Auth\Voluntary;
 
 use App\Models\Auth\User;
-use App\Models\Auth\Product;
+use App\Models\Auth\Voluntary;
 use App\Http\Controllers\Controller;
-use App\Events\Backend\Auth\Product\ProductDeleted;
+use App\Events\Backend\Auth\Voluntary\VoluntaryDeleted;
 use App\Repositories\Backend\Auth\RoleRepository;
-use App\Repositories\Backend\Auth\ProductRepository;
+use App\Repositories\Backend\Auth\VoluntaryRepository;
 use App\Repositories\Backend\Auth\UserRepository;
 use App\Repositories\Backend\Auth\PermissionRepository;
-use App\Http\Requests\Backend\Auth\Product\StoreProductRequest;
-use App\Http\Requests\Backend\Auth\Product\ManageProductRequest;
-use App\Http\Requests\Backend\Auth\Product\UpdateProductRequest;
+use App\Http\Requests\Backend\Auth\Voluntary\StoreVoluntaryRequest;
+use App\Http\Requests\Backend\Auth\Voluntary\ManageVoluntaryRequest;
+use App\Http\Requests\Backend\Auth\Voluntary\UpdateVoluntaryRequest;
 
 /**
  * Class VoluntaryController.
@@ -20,18 +20,18 @@ use App\Http\Requests\Backend\Auth\Product\UpdateProductRequest;
 class VoluntaryController extends Controller
 {
     /**
-     * @var ProductRepository
+     * @var ServiceRepository
      */
-    protected $productRepository;
+    protected $voluntaryRepository;
 
     /**
-     * ProductController constructor.
+     * ServiceController constructor.
      *
-     * @param ProductRepository $productRepository
+     * @param ServiceRepository $serviceRepository
      */
-    public function __construct(ProductRepository $productRepository)
+    public function __construct(VoluntaryRepository $voluntaryRepository)
     {
-        $this->productRepository = $productRepository;
+        $this->voluntaryRepository = $voluntaryRepository;
     }
 
     /**
@@ -39,10 +39,10 @@ class VoluntaryController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index(ManageProductRequest $request)
+    public function index(ManageVoluntaryRequest $request)
     {
         return view('backend.auth.voluntary.index')
-            ->withProducts($this->productRepository->getActivePaginated(25, 'id', 'asc'));
+            ->withVoluntaries($this->voluntaryRepository->getActivePaginated(25, 'id', 'asc'));
     }
 
     /**
@@ -52,9 +52,9 @@ class VoluntaryController extends Controller
      *
      * @return mixed
      */
-    public function create(ManageProductRequest $request, UserRepository $userRepository, PermissionRepository $permissionRepository)
+    public function create(ManageVoluntaryRequest $request, UserRepository $userRepository, PermissionRepository $permissionRepository)
     {
-        return view('backend.auth.product.create')
+        return view('backend.auth.voluntary.create')
             ->withUsers($userRepository->with('permissions')->get())
             ->withPermissions($permissionRepository->get(['id', 'name']));
     }
@@ -64,11 +64,11 @@ class VoluntaryController extends Controller
      *
      * @return mixed
      */
-    public function store(StoreProductRequest $request)
+    public function store(StoreVoluntaryRequest $request)
     {   
-        $this->productRepository->create($request->all());
+        $this->voluntaryRepository->create($request->all());
 
-        return redirect()->route('admin.auth.product.index')->withFlashSuccess(__('alerts.backend.products.created'));
+        return redirect()->route('admin.auth.donation.voluntary.index')->withFlashSuccess(__('alerts.backend.products.created'));
     }
 
     /**
@@ -77,10 +77,10 @@ class VoluntaryController extends Controller
      *
      * @return mixed
      */
-    public function show(Product $product, ManageProductRequest $request)
+    public function show(Voluntary $voluntary, ManageVoluntaryRequest $request)
     {
-        return view('backend.auth.voluntary.show')
-            ->withProduct($product);
+        return view('backend.auth.service.show')
+            ->withVoluntary($voluntary);
     }
 
     /**
@@ -91,10 +91,10 @@ class VoluntaryController extends Controller
      *
      * @return mixed
      */
-    public function edit(Product $product, ManageProductRequest $request, UserRepository $userRepository, PermissionRepository $permissionRepository)
+    public function edit(Voluntary $voluntary, ManageVoluntaryRequest $request, UserRepository $userRepository, PermissionRepository $permissionRepository)
     {
-        return view('backend.auth.product.edit')
-            ->withProduct($product)
+        return view('backend.auth.voluntary.edit')
+            ->withVoluntary($voluntary)
             ->withUsers($userRepository->with('permissions')->get());
     }
 
@@ -104,11 +104,11 @@ class VoluntaryController extends Controller
      *
      * @return mixed
      */
-    public function update(Product $product, UpdateProductRequest $request)
+    public function update(Voluntary $voluntary, UpdateVoluntaryRequest $request)
     {
-        $this->productRepository->update($product, $request->all());
+        $this->voluntaryRepository->update($voluntary, $request->all());
 
-        return redirect()->route('admin.auth.product.index')->withFlashSuccess(__('alerts.backend.products.updated'));
+        return redirect()->route('admin.auth.donation.voluntary.index')->withFlashSuccess(__('alerts.backend.voluntarys.updated'));
     }
 
     /**
@@ -117,12 +117,52 @@ class VoluntaryController extends Controller
      *
      * @return mixed
      */
-    public function destroy(Product $product, ManageProductRequest $request)
+    public function destroy(Voluntary $voluntary, ManageServiceRequest $request)
     {
-        $this->productRepository->deleteById($product->id);
+        $this->voluntaryRepository->deleteById($voluntary->id);
 
-        event(new ProductDeleted($product));
+        event(new ServiceDeleted($service));
 
-        return redirect()->route('admin.auth.product.deleted')->withFlashSuccess(__('alerts.backend.products.deleted'));
+        return redirect()->route('admin.auth.donation.service.deleted')->withFlashSuccess(__('alerts.backend.products.deleted'));
+    }
+
+
+    /**
+     * @param ManageProductRequest $request
+     *
+     * @return mixed
+     */
+    public function getDeleted(ManageVoluntaryRequest $request)
+    {
+        return view('backend.auth.voluntary.deleted')
+            ->withVoluntary($this->voluntaryRepository->getDeletedPaginated(25, 'id', 'asc'));
+    }
+
+    /**
+     * @param Product              $deletedProduct
+     * @param ManageProductRequest $request
+     *
+     * @return mixed
+     * @throws \App\Exceptions\GeneralException
+     */
+    public function delete(Voluntary $deletedVoluntary, ManageVoluntaryRequest $request)
+    {
+        $this->voluntaryRepository->forceDelete($deletedVoluntary);
+
+        return redirect()->route('admin.auth.service.deleted')->withFlashSuccess(__('alerts.backend.voluntaries.deleted_permanently'));
+    }
+
+    /**
+     * @param Product              $deletedProduct
+     * @param ManageProductRequest $request
+     *
+     * @return mixed
+     * @throws \App\Exceptions\GeneralException
+     */
+    public function restore(Voluntary $deletedVoluntary, ManageVoluntaryRequest $request)
+    {
+        $this->voluntaryRepository->restore($deletedVoluntary);
+
+        return redirect()->route('admin.auth.donation.voluntary.index')->withFlashSuccess(__('alerts.backend.voluntaries.restored'));
     }
 }
