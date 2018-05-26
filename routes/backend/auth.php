@@ -107,13 +107,23 @@ Route::group([
             Route::resource('donation', 'DonationController');
         });
         /*
-         * Donation Management
+         * Service Management
          */
         Route::group(['namespace' => 'Service'], function () {
+            
+            Route::get('service/deleted', 'ServiceController@getDeleted')->name('service.deleted');
             /*
-             * Donation CRUD
+             * Service CRUD
              */
             Route::resource('service', 'ServiceController');
+
+            /*
+             * Deleted Clothes
+             */
+            Route::group(['prefix' => 'service/{deletedService}'], function () {
+                Route::get('delete', 'ServiceController@delete')->name('service.delete-permanently');
+                Route::get('restore', 'ServiceController@restore')->name('service.restore');
+            });
         });
 
         /*

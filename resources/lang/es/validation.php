@@ -267,6 +267,37 @@ return [
                     'date_end_input'              => 'Selecciona una fecha y hora',
 
                 ],
+
+
+                'services' => [
+                    'active'             => 'Activo',
+                    'name'               => '¿Que servicio quieres ofrecer?',
+                    'category'           => 'Categoria',
+                    'sub_category'           => 'Sub Categoria',
+                    'description'        => 'Describe tu servicio',
+                    'price'              => '¿Que precio tiene tu producto?',
+                    'user_id'            => 'Usuario Vinculado',
+                    'image'              => 'Imagen Vinculada',
+                    'image_defect'       => 'Imagen por defecto',
+                    'status'             => 'Estatus de la donación',
+                    'personas'           => '¿Cupo de personas?',
+                    'material'           => '¿Que material necesitas?',
+                    'service'           => '¿Grado de estudios u oficio?',
+                    'date'               => '¿Que dìa estas disponible?',
+                    'hour'               => '¿A que hora estas disponible?',
+                    'direccion'            => 'Tu direccion es:',
+                    'lat'            => 'Tu latitud es:',
+                    'lng'            => 'Tu longitud es:',
+                    'name_input'               => 'Ej. Clases de matematicas',
+                    'category_input'           => 'ej. Ropa',
+                    'description_input'        => 'Ej. enseñar clases de matematicas basicas para niños',
+                    'price_input'              => 'ej. 3000 (Usa solo numeros)',
+                    'direccion_input'          => 'ej. 3 Sur Centro Tehuacan, Puebla',
+                    'stock_input'              => 'ej. 4 (Usa solo numeros)',
+                    'number_input'              => 'ej. 3 (Usa solo numeros)',
+                    'date_end_input'              => 'Selecciona una fecha y hora',
+
+                ],
             ],
         ],
 

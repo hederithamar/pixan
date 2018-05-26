@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Backend\Auth\Product;
+namespace App\Http\Requests\Backend\Auth\Service;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -31,9 +31,7 @@ class UpdateServiceRequest extends FormRequest
             'description'  => 'required|max:191',
             'status' => 'required',
             'category' => 'required',
-            'sub_category' => 'required',
-            'category' => 'required',
-            'stock' => 'required',
+        
         ];
     }
 }

@@ -17,25 +17,9 @@ trait ServiceMethod
      */
     public function getPicture($size = false)
     {
-        switch ($this->image_type) {
-            case 'gravatar':
-                if (! $size) {
-                    $size = config('gravatar.default.size');
-                }
-
-                return gravatar()->get($this->user->email, ['size' => $size]);
-
-            case 'storage':
-                return url('storage/'.$this->image_location);
-        }
-
-        $social_avatar = $this->providers()->where('provider', $this->image_type)->first();
-        if ($social_avatar && strlen($social_avatar->avatar)) {
-            return $social_avatar->avatar;
-        }
-
-        return false;
+        return url('storage/'.$this->user->avatar_location);
     }
+    
 
     /**
      * @return bool

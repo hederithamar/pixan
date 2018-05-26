@@ -34,8 +34,8 @@ class Service extends Model
     protected $fillable = [
         'name',
         'description',
-        'image_type',
-        'image_location',
+        'persons',
+        'material',
         'active',
         'fecha',
         'category',
@@ -48,6 +48,7 @@ class Service extends Model
         'number_product',
         
     ];
+
 
     /**
      * @var array
