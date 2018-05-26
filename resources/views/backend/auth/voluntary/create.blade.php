@@ -232,9 +232,7 @@
     }
  
     //funcion que simplemente actualiza los campos del formulario
-    function updatePosition(latLng){     
-        jQuery('#lat').val(latLng.lat());
-        jQuery('#lng').val(latLng.lng());
+    function updatePosition(latLng){ 
     }
     
     function setupEvents() {
@@ -265,8 +263,6 @@
         var latlng = getCenterLatLngText();
         var lat = map.getCenter().lat();
         var lng = map.getCenter().lng();
-        document.getElementById('lat').value = lat;
-        document.getElementById('lng').value = lng;
         reverseGeocode();
     }
 
@@ -355,8 +351,6 @@
         {
             //escribimos las coordenadas de la posicion actual del marcador dentro del input #coords
             
-            jQuery('#lat').val(this.getPosition().lat());
-            jQuery('#lng').val(this.getPosition().lng());
         });
 
         markers.push(marker);
@@ -402,8 +396,6 @@
         {
             //escribimos las coordenadas de la posicion actual del marcador dentro del input #coords
             
-            jQuery('#lat').val(this.getPosition().lat());
-            jQuery('#lng').val(this.getPosition().lng());
         });
         markers.push(marker);
 
