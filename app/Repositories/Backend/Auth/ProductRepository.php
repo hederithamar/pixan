@@ -129,6 +129,8 @@ class ProductRepository extends BaseRepository
                 'lat'             => $data['lat'],
                 'lng'             => $data['lng'],
                 'user_id'         => Auth::user()->id,
+                'image_type'      => 'storage',
+                'image_location'  => $image->store('/products', 'public'),
             ]);
 
             if ($image) {

@@ -166,5 +166,24 @@ Route::group([
             });
         });
 
+        /*
+         * Ropa Management
+         */
+        Route::group(['namespace' => 'Babies'], function () {
+
+            Route::get('babies/deleted', 'BaibiesController@getDeleted')->name('beibis.deleted');
+            /*
+             * Clothes CRUD
+             */
+            Route::resource('babies', 'BabiesController');
+
+            /*
+             * Deleted Clothes
+             */
+            Route::group(['prefix' => 'beibis/{deletedBabies}'], function () {
+                Route::get('delete', 'BabiesController@delete')->name('babies.delete-permanently');
+                Route::get('restore', 'BabiesController@restore')->name('babies.restore');
+            });
+        });
     });
 });

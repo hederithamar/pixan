@@ -131,6 +131,27 @@ return [
                     'user_id'         => 'Usuario asignado',
                 ],
             ],
+             'babies' => [
+                'active'     => 'Seccion de bebes activos',
+                'create'     => 'Crear una Donación',
+                'edit'       => 'Modificar una Donación ',
+                'management' => 'Administración Donación',
+                'deleted'    => 'Donación de  eliminados',
+
+                'table' => [
+                    'name'            => 'Bebes',
+                    'description'     => 'Descripcion',
+                    'category'        => 'Categoria',
+                    'stock'           => 'Vendidos',
+                    'date_end'        => 'Fecha',
+                    'price'           => 'Precio',
+                    'sort'            => 'Orden',
+                    'last_updated'    => 'Última modificación',
+                    'total'           => 'Todos los Productos',
+                    'user_id'         => 'Usuario asignado',
+                ],
+            ],
+
 
 
             'clothes' => [

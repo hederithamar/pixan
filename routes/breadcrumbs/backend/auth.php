@@ -8,3 +8,4 @@ require __DIR__.'/auth/service.php';
 require __DIR__.'/auth/voluntary.php';
 require __DIR__.'/auth/food.php';
 require __DIR__.'/auth/clothes.php';
+require __DIR__.'/auth/babies.php';

@@ -208,6 +208,36 @@ return [
 
                 ],
 
+
+                'babies' => [
+                    'active'             => 'Activo',
+                    'name'               => 'El nombre de tu Donación para bebes',
+                    'category'           => 'Categoria',
+                    'sub_category'           => 'Sub Categoria',
+                    'description'        => 'Descripcion de tu donación',
+                    'price'              => '¿Que precio tiene tu producto?',
+                    'user_id'            => 'Usuario Vinculado',
+                    'image'              => 'Imagen Vinculada',
+                    'image_defect'       => 'Imagen por defecto',
+                    'status'             => 'Estatus de la donación',
+                    'stock'              => '¿Que cantidad es?',
+                    'number_product'     => '¿Cuantos productos son?',
+                    'date'               => '¿Que dìa quieres que pasemos por el?',
+                    'hour'               => '¿A que hora estas disponible?',
+                    'direccion'            => 'Tu direccion es:',
+                    'lat'            => 'Tu latitud es:',
+                    'lng'            => 'Tu longitud es:',
+                    'name_input'               => 'Ej. Ropa de bebe',
+                    'category_input'           => 'ej. Bebes',
+                    'description_input'        => 'Ej. 2 juguetes para bebe',
+                    'price_input'              => 'ej. 3000 (Usa solo numeros)',
+                    'direccion_input'          => 'ej. 3 Sur Centro Tehuacan, Puebla',
+                    'stock_input'              => 'ej. 4 (Usa solo numeros)',
+                    'number_input'              => 'ej. 3 (Usa solo numeros)',
+                    'date_end_input'              => 'Selecciona una fecha y hora',
+
+                ],
+
                 'clothes' => [
                     'active'             => 'Activo',
                     'name'               => 'El nombre de tu Donación de Ropa',
