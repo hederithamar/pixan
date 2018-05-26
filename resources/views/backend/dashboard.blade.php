@@ -11,6 +11,22 @@
                     </div><!--card-header-->
                    
                 </div><!--card-->
+                @if ($logged_in_user->isAdmin())
+            <div class="col-6 col-lg-3">
+                <div class="card">
+                    <div class="card-body p-3 d-flex align-items-center">
+                        <i class="fa fa-cutlery bg-primary p-3 font-2xl mr-3"></i>
+                        
+                    </div>
+                    <div class="card-footer px-3 py-2">
+                        <a class="btn-block text-muted d-flex justify-content-between align-items-center" href="{{ route('admin.auth.product.index') }}">
+                            <span class="small font-weight-bold">productos</span>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>
+                </div>
+           </div> 
+              @endif
             <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
