@@ -138,35 +138,13 @@
 
             @if ($logged_in_user->isExecutive())
                 <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/auth*'), 'open') }}">
-                    <a class="nav-link nav-dropdown-toggle" href="#">
+                    <a class="nav-link nav-dropdown-toggle" href="{{ route('admin.auth.donation.service.index') }}">
                         <i class="fa fa-slideshare"></i> {{ __('menus.backend.access.service') }}
 
                         @if ($pending_approval > 0)
                             <span class="badge badge-danger">{{ $pending_approval }}</span>
                         @endif
                     </a>
-
-                    <ul class="nav-dropdown-items">
-                        <li class="nav-item">
-                            <a class="nav-link {{ active_class(Active::checkUriPattern('admin/auth/product*')) }}" href="{{ route('admin.auth.product.index') }}">
-                                {{ __('labels.backend.access.donations.profession') }}
-
-                                @if ($pending_approval > 0)
-                                    <span class="badge badge-danger">{{ $pending_approval }}</span>
-                                @endif
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ active_class(Active::checkUriPattern('admin/auth/user*')) }}" href="{{ route('admin.auth.user.index') }}">
-                                {{ __('labels.backend.access.donations.job') }}
-
-                                @if ($pending_approval > 0)
-                                    <span class="badge badge-danger">{{ $pending_approval }}</span>
-                                @endif
-                            </a>
-                        </li>
-                         
-                    </ul>
                 </li>
             @endif
 

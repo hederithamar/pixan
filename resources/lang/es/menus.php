@@ -48,6 +48,15 @@ return [
                 'main'            => 'Productos',
                 'view'            => 'Ver Producto',
             ],
+            'services' => [
+                'all'             => 'Todos los Servicios',
+                'create'          => 'Nuevo Servicio',
+                'deactivated'     => 'Servicios Desactivados',
+                'deleted'         => 'Servicios Eliminados',
+                'edit'            => 'Modificar Servicios',
+                'main'            => 'Servicios',
+                'view'            => 'Ver Servicios',
+            ],
         ],
 
         'log-viewer' => [

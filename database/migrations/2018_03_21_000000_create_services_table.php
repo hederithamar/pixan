@@ -24,8 +24,8 @@ class CreateServicesTable extends Migration
             $table->string('description')->nullable();
             $table->string('service')->nullable();
             $table->string('persons')->nullable();
+            $table->string('material')->nullable();
             $table->string('category')->nullable();
-            $table->string('sub_category')->nullable();
             $table->string('genero')->nullable();
             $table->string('image_type')->default('gravatar');
             $table->string('image_location')->nullable();

@@ -31,6 +31,7 @@ class CreateProductsTable extends Migration
             $table->string('image_location')->nullable();
             $table->string('evidence_type')->default('gravatar');
             $table->string('evidence_location')->nullable();
+            $table->string('evidence_text')->nullable();
             $table->tinyInteger('active')->default(1)->unsigned();
             $table->string('status')->nullable();
             $table->string('direccion')->nullable();

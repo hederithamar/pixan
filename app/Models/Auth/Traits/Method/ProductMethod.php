@@ -11,7 +11,7 @@ trait ProductMethod
 
     /**
      * @param bool $size
-     *
+    *
      * @return bool|\Illuminate\Contracts\Routing\UrlGenerator|mixed|string
      * @throws \Illuminate\Container\EntryNotFoundException
      */
@@ -35,7 +35,31 @@ trait ProductMethod
         }
 
         return false;
-    }
+    } 
+
+
+    /**
+     * @param bool $size
+    *
+     * @return bool|\Illuminate\Contracts\Routing\UrlGenerator|mixed|string
+     * @throws \Illuminate\Container\EntryNotFoundException
+     */
+    public function getEvidence($size = false)
+    {
+        switch ($this->evidence_type) {
+            case 'gravatar':
+                if (! $size) {
+                    $size = config('gravatar.default.size');
+                }
+
+                return gravatar()->get($this->user->email, ['size' => $size]);
+
+            case 'storage':
+                return url('storage/'.$this->evidence_location);
+        }
+        return false;
+    } 
+
 
     /**
      * @return bool

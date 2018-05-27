@@ -175,6 +175,27 @@ return [
                 ],
             ],
 
+             'services' => [
+                'active'     => 'Seccion de Servicios',
+                'create'     => 'Crear un servicio',
+                'edit'       => 'Modificar un servicio ',
+                'management' => 'Administración Servicios',
+                'deleted'    => 'Servicios de  eliminados',
+
+                'table' => [
+                    'name'            => 'Bebes',
+                    'description'     => 'Descripcion',
+                    'category'        => 'Categoria',
+                    'stock'           => 'Vendidos',
+                    'date_end'        => 'Fecha',
+                    'price'           => 'Precio',
+                    'sort'            => 'Orden',
+                    'last_updated'    => 'Última modificación',
+                    'total'           => 'Todos los servicios',
+                    'user_id'         => 'Usuario asignado',
+                ],
+            ],
+
 
             'users' => [
                 'active'              => 'Usuarios activos',

@@ -34,7 +34,7 @@ trait ServiceAttribute
      */
     public function getShowButtonAttribute()
     {
-        return '<a href="'.route('admin.auth.service.show', $this).'" class="btn btn-info"><i class="fa fa-search" data-toggle="tooltip" data-placement="top" title="'.__('buttons.general.crud.view').'"></i></a>';
+        return '<a href="'.route('admin.auth.donation.service.show', $this).'" class="btn btn-info"><i class="fa fa-search" data-toggle="tooltip" data-placement="top" title="'.__('buttons.general.crud.view').'"></i></a>';
     }
 
     /**
@@ -42,7 +42,7 @@ trait ServiceAttribute
      */
     public function getEditButtonAttribute()
     {
-        return '<a href="'.route('admin.auth.service.edit', $this).'" class="btn btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="'.__('buttons.general.crud.edit').'"></i></a>';
+        return '<a href="'.route('admin.auth.donation.service.edit', $this).'" class="btn btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="'.__('buttons.general.crud.edit').'"></i></a>';
     }
 
     /**
@@ -59,7 +59,7 @@ trait ServiceAttribute
     public function getDeleteButtonAttribute()
     {
        
-        return '<a href="'.route('admin.auth.service.destroy', $this).'"
+        return '<a href="'.route('admin.auth.donation.service.destroy', $this).'"
                  data-method="delete"
                  data-trans-button-cancel="'.__('buttons.general.cancel').'"
                  data-trans-button-confirm="'.__('buttons.general.crud.delete').'"
@@ -74,7 +74,7 @@ trait ServiceAttribute
      */
     public function getDeletePermanentlyButtonAttribute()
     {
-        return '<a href="'.route('admin.auth.service.delete-permanently', $this).'" name="confirm_item" class="btn btn-danger"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="'.__('buttons.backend.access.products.delete_permanently').'"></i></a> ';
+        return '<a href="'.route('admin.auth.donation.service.delete-permanently', $this).'" name="confirm_item" class="btn btn-danger"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="'.__('buttons.backend.access.products.delete_permanently').'"></i></a> ';
     }
 
     /**
@@ -82,7 +82,7 @@ trait ServiceAttribute
      */
     public function getRestoreButtonAttribute()
     {
-        return '<a href="'.route('admin.auth.service.restore', $this).'" name="confirm_item" class="btn btn-info"><i class="fa fa-refresh" data-toggle="tooltip" data-placement="top" title="'.__('buttons.backend.access.products.restore_product').'"></i></a> ';
+        return '<a href="'.route('admin.auth.donation.service.restore', $this).'" name="confirm_item" class="btn btn-info"><i class="fa fa-refresh" data-toggle="tooltip" data-placement="top" title="'.__('buttons.backend.access.products.restore_product').'"></i></a> ';
     }
 
     /**

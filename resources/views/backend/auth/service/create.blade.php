@@ -1,61 +1,44 @@
 @extends ('backend.layouts.app')
 
-@section ('title', __('labels.backend.access.products.management') . ' | ' . __('labels.backend.access.products.edit'))
+@section ('title', __('labels.backend.access.services.management') . ' | ' . __('labels.backend.access.users.create'))
+
+@section('breadcrumb-links')
+    @include('backend.auth.service.includes.breadcrumb-links')
+@endsection
 
 @section('content')
-{{ html()->modelForm($product, 'PATCH', route('admin.auth.product.update', $product))->class('form-horizontal')->attribute('enctype', 'multipart/form-data')->open() }}
+    {{ html()->form('POST', route('admin.auth.donation.service.store'))->class('form-horizontal')->attribute('enctype', 'multipart/form-data')->open() }}
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <h4 class="card-title mb-0">
+                            {{ __('labels.backend.access.services.management') }}
+                            <small class="text-muted">{{ __('labels.backend.access.services.create') }}</small>
+                        </h4>
+                    </div><!--col-->
+                </div><!--row-->
 
-    <div class="card">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-sm-5">
-                    <h4 class="card-title mb-0">
-                        {{ __('labels.backend.access.products.management') }}
-                        <small class="text-muted">{{ __('labels.backend.access.products.edit') }}</small>
-                    </h4>
-                </div><!--col-->
-            </div><!--row-->
-            <!--row-->
+                <hr/>
 
-            <hr />
-
-            <div class="row mt-4 mb-4">
+                <div class="row mt-4 mb-4">
                     <div class="col">
                         <div class="form-group row">
                             <div class="col-md-4">
-                                {{ html()->label(__('validation.attributes.backend.access.foods.category'))->class('col-md-12 form-control-label')->for('category') }}
+                                {{ html()->label(__('validation.attributes.backend.access.services.category'))->class('col-md-12 form-control-label')->for('category') }}
 
-                                <select name="category" id="category" class="form-control" required="required">
-                                     <option value="Alimentos">Alimentos</option>  
-                                     <option value="Ropa">Ropa</option>
-                                     <option value="Bebes">Bebes</option>  
+                                <select name="category" id="category" class="js-example-responsive " required="required">
+                                     <option value="Servicio">Servicio</option>      
                                 </select>
                             </div><!--col-->
-                            <div class="col-md-4">
-                                {{ html()->label(__('validation.attributes.backend.access.foods.sub_category'))->class('col-md-12 form-control-label')->for('sub_category') }}
+                             <div class="col-md-4">
+                                {{ html()->label(__('validation.attributes.backend.access.babies.status'))->class('col-md-12 form-control-label')->for('status') }}
 
-                                <select name="sub_category" id="sub_category" class="form-control" required="required">
-                                   
-                                        <option value="Enlatados">Enlatados</option>
-                                        <option value="Enbolsados">Enbolsados</option>
-                                        <option value="Cajas">Cajas</option>
-                                        <option value="Embotellados">Enbotellados</option>
-                                        <option value="Varios">Varios</option>
-                                </select>
-                            </div><!--col-->
-                            <div class="col-md-4">
-                                {{ html()->label(__('validation.attributes.backend.access.foods.status'))->class('col-md-12 form-control-label')->for('status') }}
-
-                                <select name="status" id="status" class="form-control" >
+                                <select name="status" id="status" class="js-example-responsive " >
                                      <option value="En espera">En espera</option>
                                     @if ($logged_in_user->isAdmin())
                                         <option value="Aceptada">Aceptada</option>
-                                        <option value="Recojida">Recojida</option>
-                                        <option value="En oficinas centrales">En oficinas centrales</option>
-                                        <option value="Proceso de validación">Proceso de validación</option>
-                                        <option value="Asignado">Asignado</option>
-                                        <option value="En camino">En camino</option>
-                                        <option value="Entregada">Entregada</option>
+                                        
                                     @endif
 
                                 </select>
@@ -64,22 +47,22 @@
                         <div class="form-group row">
                            
                             <div class="col-md-4">
-                                {{ html()->label(__('validation.attributes.backend.access.foods.name'))->class('col-md-12 form-control-label')->for('name') }}
+                                {{ html()->label(__('validation.attributes.backend.access.services.name'))->class('col-md-12 form-control-label')->for('name') }}
 
                                 {{ html()->text('name')
                                     ->class('form-control')
-                                    ->placeholder(__('validation.attributes.backend.access.foods.name_input'))
+                                    ->placeholder(__('validation.attributes.backend.access.services.name_input'))
                                     ->attribute('maxlength', 191)
                                     ->required()
                                     ->autofocus() }}
                             </div><!--col-->
 
                             <div class="col-md-8">
-                                {{ html()->label(__('validation.attributes.backend.access.foods.description'))->class('col-md-12 form-control-label')->for('description') }}
+                                {{ html()->label(__('validation.attributes.backend.access.services.description'))->class('col-md-12 form-control-label')->for('description') }}
 
                                 {{ html()->text('description')
                                     ->class('form-control')
-                                    ->placeholder(__('validation.attributes.backend.access.foods.description_input'))
+                                    ->placeholder(__('validation.attributes.backend.access.services.description_input'))
                                     ->attribute('maxlength', 191)
                                     ->required() }}
                             </div><!--col-->
@@ -89,31 +72,41 @@
                 
                         <div class="form-group row">
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <div class="form-group row">
-                                    <div class="col-md-5">
-                                         {{ html()->label(__('validation.attributes.backend.access.foods.stock'))->class('col-md-12 form-control-label')->for('stock') }}
+                                    <div class="col-md-6">
+                                         {{ html()->label(__('validation.attributes.backend.access.services.personas'))->class('col-md-12 form-control-label')->for('stock') }}
 
 
-                                        {{ html()->text('stock')
+                                        {{ html()->text('persons')
                                             ->class('form-control')
-                                            ->placeholder(__('validation.attributes.backend.access.foods.stock_input'))
+                                            ->placeholder(__('validation.attributes.backend.access.services.personas'))
                                             ->attribute('maxlength', 191)
                                             ->required() }}
                                     </div><!--col-->
-                                    <div class="col-md-5">
-                                         {{ html()->label(__('validation.attributes.backend.access.foods.number_product'))->class('col-md-12 form-control-label')->for('stock') }}
+                                    <div class="col-md-6">
+                                         {{ html()->label(__('validation.attributes.backend.access.services.material'))->class('col-md-12 form-control-label')->for('material') }}
 
 
-                                        {{ html()->text('number_product')
+                                        {{ html()->text('material')
                                             ->class('form-control')
-                                            ->placeholder(__('validation.attributes.backend.access.foods.stock_input'))
+                                            ->placeholder(__('validation.attributes.backend.access.services.material'))
+                                            ->attribute('maxlength', 191)
+                                            ->required() }}
+                                    </div><!--col-->
+                                    <div class="col-md-12">
+                                         {{ html()->label(__('validation.attributes.backend.access.services.service'))->class('col-md-12 form-control-label')->for('material') }}
+
+
+                                        {{ html()->text('service')
+                                            ->class('form-control')
+                                            ->placeholder(__('validation.attributes.backend.access.services.service'))
                                             ->attribute('maxlength', 191)
                                             ->required() }}
                                     </div><!--col-->
                                     @if ($logged_in_user->isAdmin())
                                         <div class="col-md-2">
-                                            {{ html()->label(__('validation.attributes.backend.access.foods.active'))->class('col-md-12 form-control-label')->for('active') }}
+                                            {{ html()->label(__('validation.attributes.backend.access.services.active'))->class('col-md-12 form-control-label')->for('active') }}
 
                                             <label class="switch switch-3d switch-primary">
                                                 {{ html()->checkbox('active', true, '1')->class('switch-input') }}
@@ -123,19 +116,39 @@
                                         </div><!--col-->
                                     @endif
                                 </div><!--col-->
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                        {{ html()->label(__('validation.attributes.backend.access.services.date'))->class('col-md-12 form-control-label')->for('date') }}
+
+                                        {{ html()->text('fecha')
+                                            ->class('form-control')
+                                            ->attribute('maxlength', 191)
+                                            ->required() }}
+                                    </div><!--col-->
+                                     <div class="col-md-6">
+                                        {{ html()->label(__('validation.attributes.backend.access.services.hour'))->class('col-md-12 form-control-label')->for('hour') }}
+
+                                        {{ html()->text('hora')
+                                            ->class('form-control')
+                                            ->attribute('maxlength', 191)
+                                            ->required() }}
+                                    </div><!--col-->
+                                </div><!--col-->
                                
-                                <div class="col-md-12 row">
-                                    {{ html()->label(__('validation.attributes.backend.access.foods.direccion'))->class('col-md-12 form-control-label')->for('direccion') }}
+                                <div class="form-group row">
+                                    <div class="col-md-12">
+                                    {{ html()->label(__('validation.attributes.backend.access.services.direccion'))->class('col-md-12 form-control-label')->for('direccion') }}
 
                                     {{ html()->text('direccion')
                                         ->class('form-control')
-                                        ->placeholder(__('validation.attributes.backend.access.foods.direccion_input'))
+                                        ->placeholder(__('validation.attributes.backend.access.services.direccion_input'))
                                         ->attribute('maxlength', 191)
                                         ->required() }}
+                                    </div><!--col-->
                                 </div><!--col-->
                                <div class="form-group row">
                                     <div class="col-md-6">
-                                        {{ html()->label(__('validation.attributes.backend.access.foods.lat'))->class('col-md-12 form-control-label')->for('lat') }}
+                                        {{ html()->label(__('validation.attributes.backend.access.services.lat'))->class('col-md-12 form-control-label')->for('lat') }}
 
                                         {{ html()->text('lat')
                                             ->class('form-control')
@@ -143,7 +156,7 @@
                                             ->required() }}
                                     </div><!--col-->
                                     <div class="col-md-6">
-                                        {{ html()->label(__('validation.attributes.backend.access.foods.lng'))->class('col-md-12 form-control-label')->for('lng') }}
+                                        {{ html()->label(__('validation.attributes.backend.access.services.lng'))->class('col-md-12 form-control-label')->for('lng') }}
 
                                         {{ html()->text('lng')
                                             ->class('form-control')
@@ -154,10 +167,10 @@
                                
                             </div><!--col-->
                             
-                            <div class="col-xs-12 col-sm-6 col-md-6 form-group"> 
+                            <div class="col-xs-12 col-sm-12 col-md-4 form-group"> 
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                      <!-- div donde se dibuja el mapa-->
-                                    <div id="map_canvas" style="width:420px;height:300px;">
+                                    <div id="map_canvas" style="width:220px;height:320px;">
                                         <div id="crosshair"></div>
                                     </div>
                                 </div>
@@ -165,56 +178,23 @@
                             
                         </div><!--form-group-->
 
-                        <div class="form-group row">
-                            
-
-                            <div class="col-md-9">
-                                    <div class="form-group">
-                                        {{ html()->label(__('validation.attributes.backend.access.foods.image'))->for('image') }}
-                                       
-                                    </div><!--form-group-->
-
-                                    <div class="form-group hidden" id="image_location">
-                                        {{ html()->file('evidence_location')->class('form-control') }}
-                                    </div><!--form-group-->
-                            </div><!--col-->
-                            <div class="col-md-9">
-                                {{ html()->label(__('validation.attributes.backend.access.products.evidence_text'))->class('col-md-12 form-control-label')->for('name') }}
-
-                                {{ html()->text('evidence_text')
-                                    ->class('form-control')
-                                    ->placeholder(__('validation.attributes.backend.access.products.evidence_text'))
-                                    ->attribute('maxlength', 191)
-                                    ->required()
-                                    ->autofocus() }}
-                            </div><!--col-->
-                        </div><!--form-group-->
-
-                        <div class="form-group row">
-                            
-
-                            <div class="col-md-9">
-                                   
-
-                            </div><!--col-->
-                        </div><!--form-group-->
                     </div><!--col-->
                 </div><!--row-->
-        </div><!--card-body-->
+            </div><!--card-body-->
 
-        <div class="card-footer">
-            <div class="row">
-                <div class="col">
-                    {{ form_cancel(route('admin.auth.product.index'), __('buttons.general.cancel')) }}
-                </div><!--col-->
+            <div class="card-footer clearfix">
+                <div class="row">
+                    <div class="col">
+                        {{ form_cancel(route('admin.auth.donation.food.index'), __('buttons.general.cancel')) }}
+                    </div><!--col-->
 
-                <div class="col text-right">
-                    {{ form_submit(__('buttons.general.crud.update')) }}
-                </div><!--col-->
-            </div><!--row-->
-        </div><!--card-footer-->
-    </div><!--card-->
-{{ html()->closeModelForm() }}
+                    <div class="col text-right">
+                        {{ form_submit(__('buttons.general.crud.create')) }}
+                    </div><!--col-->
+                </div><!--row-->
+            </div><!--card-footer-->
+        </div><!--card-->
+    {{ html()->form()->close() }}
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
@@ -481,17 +461,8 @@
         clearMarkers();
         markers = [];
     }
-    function funcion_primera(){
-        
-        geocode();   
-    }
-
-    function lanzadera(){
-        funcion_primera();
-        
-    }
-    
-    window.onload = lanzadera;
 
 </script>
+
+
 @endsection

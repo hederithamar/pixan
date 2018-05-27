@@ -3,28 +3,28 @@
 namespace App\Repositories\Backend\Auth;
 
 use App\Models\Auth\User;
-use App\Models\Auth\Product;
+use App\Models\Auth\Service;
 use Illuminate\Support\Facades\DB;
 use App\Exceptions\GeneralException;
 use App\Repositories\BaseRepository;
-use App\Events\Backend\Auth\Product\ProductCreated;
-use App\Events\Backend\Auth\Product\ProductUpdated;
-use App\Events\Backend\Auth\Product\ProductRestored;
+use App\Events\Backend\Auth\Service\ServiceCreated;
+use App\Events\Backend\Auth\Service\ServiceUpdated;
+use App\Events\Backend\Auth\Service\ServiceRestored;
 use Illuminate\Pagination\LengthAwarePaginator;
-use App\Events\Backend\Auth\Product\ProductPermanentlyDeleted;
+use App\Events\Backend\Auth\Service\ServicePermanentlyDeleted;
 use Auth;
 
 /**
- * Class ProductRepository.
+ * Class ServiceRepository.
  */
-class ProductRepository extends BaseRepository
+class ServiceRepository extends BaseRepository
 {
     /**
      * @return string
      */
     public function model()
     {
-        return Product::class;
+        return Service::class;
     }
 
     /**
@@ -109,88 +109,67 @@ class ProductRepository extends BaseRepository
     /**
      * @param array $data
      *
-     * @return Product
+     * @return Service
      */
-    public function create(array $data, $image = false) : Product
+    public function create(array $data, $image = false) : Service
     {
         return DB::transaction(function () use ($data, $image) {
-            $product = parent::create([
+            $service = parent::create([
                 'category'        => $data['category'],
-                'sub_category'    => $data['sub_category'],
-                'genero'          => $data['genero'],
                 'name'            => $data['name'],
                 'description'     => $data['description'],
-                'stock'           => $data['stock'],
-                'number_product'  => $data['number_product'],
+                'persons'         => $data['persons'],
+                'material'        => $data['material'],
                 'active'          => 1,
                 'status'          => $data['status'],
+                'service'  => $data['service'],
                 'fecha'           => $data['fecha']." ".$data['hora'],
                 'direccion'       => $data['direccion'],
                 'lat'             => $data['lat'],
                 'lng'             => $data['lng'],
                 'user_id'         => Auth::user()->id,
-                'image_type'      => 'storage',
-                'image_location'  => $image->store('/products', 'public'),
             ]);
 
-            if ($image) {
-
-                $product->image_type = 'storage';
-
-                $product->image_location = $image->store('/products', 'public');
-            } else {
-                // No image being passed
-                $product->avatar_location = null;
-            }
-
-            if ($product) {
+            if ($service) {
                 
-                event(new ProductCreated($product));
+                event(new ServiceCreated($service));
 
-                return $product;
+                return $service;
             }
 
-            throw new GeneralException(__('exceptions.backend.access.products.create_error'));
+            throw new GeneralException(__('exceptions.backend.access.services.create_error'));
         });
     }
 
     /**
-     * @param Product  $product
+     * @param Service  $service
      * @param array $data
      *
-     * @return Product
+     * @return Service
      */
-    public function update(Product $product, array $data, $image = false) : Product
+    public function update(Service $service, array $data, $image = false) : Service
     {
-
-        
-
-        return DB::transaction(function () use ($product, $data, $image) {
-            if ($product->update([
+        return DB::transaction(function () use ($service, $data, $image) {
+            if ($service->update([
                 'category'        => $data['category'],
-                'sub_category'    => $data['sub_category'],
                 'name'            => $data['name'],
                 'description'     => $data['description'],
-                'stock'           => $data['stock'],
-                'number_product'  => $data['number_product'],
+                'persons'           => $data['persons'],
+                'material'  => $data['material'],
+                'service'  => $data['service'],
                 'active'          => 1,
                 'status'          => $data['status'],
                 'direccion'       => $data['direccion'],
-                'lat'             => $data['lat'],
-                'lng'             => $data['lng'],
-                'evidence_text'   => $data['evidence_text'],
-                'evidence_type'      => 'storage',
-                'evidence_location'  => $image->store('/evidence', 'public'),
                 
             ])) {
                
 
-                event(new ProductUpdated($product));
+                event(new ServiceUpdated($service));
 
-                return $product;
+                return $service;
             }
 
-            throw new GeneralException(__('exceptions.backend.access.products.update_error'));
+            throw new GeneralException(__('exceptions.backend.access.services.update_error'));
         });
     }
 
@@ -200,22 +179,22 @@ class ProductRepository extends BaseRepository
      * @return Product
      * @throws GeneralException
      */
-    public function forceDelete(Product $product) : Product
+    public function forceDelete(Service $service) : Service
     {
-        if (is_null($product->deleted_at)) {
-            throw new GeneralException(__('exceptions.backend.access.products.delete_first'));
+        if (is_null($service->deleted_at)) {
+            throw new GeneralException(__('exceptions.backend.access.services.delete_first'));
         }
 
         return DB::transaction(function () use ($product) {
             // Delete associated relationships
 
-            if ($product->forceDelete()) {
-                event(new ProductPermanentlyDeleted($product));
+            if ($service->forceDelete()) {
+                event(new ProductPermanentlyDeleted($service));
 
-                return $product;
+                return $service;
             }
 
-            throw new GeneralException(__('exceptions.backend.access.products.delete_error'));
+            throw new GeneralException(__('exceptions.backend.access.services.delete_error'));
         });
     }
 
@@ -225,18 +204,18 @@ class ProductRepository extends BaseRepository
      * @return Product
      * @throws GeneralException
      */
-    public function restore(Product $product) : Product
+    public function restore(Service $service) : Service
     {
-        if (is_null($product->deleted_at)) {
-            throw new GeneralException(__('exceptions.backend.access.products.cant_restore'));
+        if (is_null($service->deleted_at)) {
+            throw new GeneralException(__('exceptions.backend.access.services.cant_restore'));
         }
 
-        if ($product->restore()) {
-            event(new ProductRestored($product));
+        if ($service->restore()) {
+            event(new ProductRestored($service));
 
-            return $product;
+            return $service;
         }
 
-        throw new GeneralException(__('exceptions.backend.access.products.restore_error'));
+        throw new GeneralException(__('exceptions.backend.access.services.restore_error'));
     }
 }
