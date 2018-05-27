@@ -83,9 +83,23 @@ return [
 
             'voluntaries' => [
                 'active'     => 'Voluntarios activos',
-                'create'     => 'Crear Producto',
-                'edit'       => 'Modificar Producto',
-                'management' => 'Administración de Voluntarios',
+                'create'     => 'Crear Voluntario',
+                'edit'       => 'Modificar Voluntario',
+                'management' => 'Administración de Voluntario',
+                'deleted'    => 'Voluntarios eliminados',
+
+                'table' => [
+                    'name'            => 'Productos',
+                    'description'     => 'Descripcion',
+                    'category'        => 'Categoria',
+                    'stock'           => 'Vendidos',
+                    'date_end'        => 'Fecha',
+                    'price'           => 'Precio',
+                    'sort'            => 'Orden',
+                    'last_updated'    => 'Última modificación',
+                    'total'           => 'Todos los Voluntarios',
+                    'user_id'         => 'Usuario asignado',
+                ],
             ],
 
 
