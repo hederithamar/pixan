@@ -26,7 +26,7 @@
                         
                     </div>
                     <div class="card-footer px-3 py-2">
-                        <a class="btn-block text-muted d-flex justify-content-between align-items-center" href="{{ route('admin.auth.donation.food.index') }}">
+                        <a  href="{{ route('admin.auth.donation.food.index') }}">
                             <span class="small font-weight-bold">Alimentos</span>
                             <i class="fa fa-angle-right"></i>
                         </a>

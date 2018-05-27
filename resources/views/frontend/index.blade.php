@@ -62,7 +62,7 @@
     <div id="header-wrapper" class="header-slider">
         <header class="clearfix">
             <div class="logo">
-                <img src="theme/img/icons/creativity.png" alt="" />
+                <img src="theme/img/icons/APOMEFT DONACIONES.png" alt="" />
             </div>
             <div class="container">
                 <div class="row">
@@ -76,7 +76,7 @@
                                 </li>
                                 <li>
                                     <p class="home-slide-content">
-                                        Part Of Me <strong>For They</strong>
+                                        Apart Of Me <strong>For They</strong>
                                     </p>
                                 </li>
                                 <li>
@@ -98,7 +98,7 @@
             <div class="row">
                 <div class="span6 alignright flyLeft">
                     <blockquote class="large">
-                        El nombre APOMEFT por sus siglas en ingles significa Part Of Me For They en español...<cite>Una parte de mi para ellos.</cite>
+                        El nombre APOMEFT por sus siglas en ingles significa Apart Of Me For They en español...<cite>Una parte de mi para ellos.</cite>
                     </blockquote>
                 </div>
                 <div class="span6 aligncenter flyRight">
@@ -117,13 +117,13 @@
                     <div>
                         <h2>Una parte de mi <strong>para ellos.</strong></h2>
                         <p>
-                            Somos la organización donaciones APOMEFT, especializada en recaudar donaciones de: productos y servicios profesionales sin fines de lucro, cubriendo la necesidad de apoyo mutuo bajo el contrato de permuta; la Solidaridad, voluntad, confianza y seguridad nos distinguen...  
+                            Somos la organización donaciones APOMEFT, especializada en recaudar donaciones de: productos y servicios profesionales sin fines de lucro, cubriendo la necesidad de apoyo mutuo bajo el contrato de permuta; la solidaridad, voluntad, confianza y seguridad nos distinguen...  
                         </p>
                     </div>
                 </div>
                 <div class="span6">
                     <div class="aligncenter">
-                        <img src="theme/img/icons/creativity.png" alt="" />
+                        <img src="theme/img/icons/APOMEFT DONACIONES.png" alt="" />
                     </div>
                 </div>
             </div>
@@ -264,7 +264,7 @@
                             <p>
                                Necesitamos tu apoyo para coordinar... &hellip;
                             </p>
-                            <a href="#" class="more">Read more</a>
+                            <a href="#" class="more">Saber más</a>
                         </div>
                     </div>
                 </div>
