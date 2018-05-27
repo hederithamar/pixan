@@ -32,20 +32,15 @@ class Voluntary extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
-        'description',
-        'image_type',
-        'image_location',
-        'active',
-        'fecha',
-        'category',
-        'direccion',
-        'lat',
-        'lng',
-        'stock',
+        'celular',
+        'sexo',
+        'facebook',
+        'escolaridad',
+        'carrera',
+        'habilidades',
+        'razon',
         'user_id',
         'status',
-        'number_product',
         
     ];
 

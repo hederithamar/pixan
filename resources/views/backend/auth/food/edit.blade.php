@@ -28,6 +28,7 @@
                                      <option value="Alimentos">Alimentos</option>      
                                 </select>
                             </div><!--col-->
+                            {{$product}}pllplpl
                             <div class="col-md-4">
                                 {{ html()->label(__('validation.attributes.backend.access.foods.sub_category'))->class('col-md-12 form-control-label')->for('sub_category') }}
 

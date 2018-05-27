@@ -130,10 +130,19 @@ Route::group([
          * Donation Management
          */
         Route::group(['namespace' => 'Voluntary'], function () {
+            Route::get('voluntary/deleted', 'VoluntaryController@getDeleted')->name('voluntary.deleted');
             /*
-             * Donation CRUD
+             * Service CRUD
              */
             Route::resource('voluntary', 'VoluntaryController');
+
+            /*
+             * Deleted Clothes
+             */
+            Route::group(['prefix' => 'voluntary/{deletedVoluntary}'], function () {
+                Route::get('delete', 'VoluntaryController@delete')->name('voluntary.delete-permanently');
+                Route::get('restore', 'VoluntaryController@restore')->name('voluntary.restore');
+            });
         });
 
         /*

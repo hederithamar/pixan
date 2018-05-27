@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Backend\Auth\Product;
+namespace App\Http\Requests\Backend\Auth\Voluntary;
 
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
@@ -28,12 +28,8 @@ class StoreVoluntaryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'     => 'required|max:191',
-            'description'  => 'required|max:191',
-            'direccion' => 'required',
-            'fecha' => 'required',
-            'hora' => 'required',
-            'avatar_location' => 'sometimes|image|max:191',
+            'celphone'     => 'required|max:191',
+            'sexo'  => 'required|max:191',
         ];
     }
 }
