@@ -177,7 +177,7 @@
                 </div>
                 <div class="span3 animated flyIn">
                     <div class="service-box">
-                        <img src="theme/img/icons/lab.png" alt="" />
+                        <img src="theme/img/icons/ropa.png" alt="" />
                         <h2>Ropa</h2>
                         <p>
                             Puedes donar ropa.
@@ -186,7 +186,7 @@
                 </div>
                 <div class="span3 animated-fast flyIn">
                     <div class="service-box">
-                        <img src="theme/img/icons/laptop.png" alt="" />
+                        <img src="theme/img/icons/libros.png" alt="" />
                         <h2>Libros</h2>
                         <p>
                             puedes donar libros.
@@ -195,7 +195,7 @@
                 </div>
                 <div class="span3 animated-slow flyIn">
                     <div class="service-box">
-                        <img src="theme/img/icons/camera.png" alt="" />
+                        <img src="theme/img/icons/juguetes.png" alt="" />
                         <h2>Juguetes</h2>
                         <p>
                             Puedes donar juguetes.
