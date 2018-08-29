@@ -133,24 +133,7 @@
                                         ->attribute('maxlength', 191)
                                         ->required() }}
                                 </div><!--col-->
-                               <div class="form-group row">
-                                    <div class="col-md-6">
-                                        {{ html()->label(__('validation.attributes.backend.access.foods.lat'))->class('col-md-12 form-control-label')->for('lat') }}
-
-                                        {{ html()->text('lat')
-                                            ->class('form-control')
-                                            ->attribute('maxlength', 191)
-                                            ->required() }}
-                                    </div><!--col-->
-                                    <div class="col-md-6">
-                                        {{ html()->label(__('validation.attributes.backend.access.foods.lng'))->class('col-md-12 form-control-label')->for('lng') }}
-
-                                        {{ html()->text('lng')
-                                            ->class('form-control')
-                                            ->attribute('maxlength', 191)
-                                            ->required() }}
-                                    </div><!--col-->
-                                </div><!--col-->
+                               
                                
                             </div><!--col-->
                             

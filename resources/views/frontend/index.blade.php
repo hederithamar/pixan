@@ -76,7 +76,7 @@
                                 </li>
                                 <li>
                                     <p class="home-slide-content">
-                                        Apart Of Me <strong>For They</strong>
+                                        A part Of Me <strong>For They</strong>
                                     </p>
                                 </li>
                                 <li>
@@ -98,7 +98,7 @@
             <div class="row">
                 <div class="span6 alignright flyLeft">
                     <blockquote class="large">
-                        El nombre APOMEFT por sus siglas en ingles significa Apart Of Me For They en español...<cite>Una parte de mi para ellos.</cite>
+                        El nombre APOMEFT por sus siglas en ingles significa A Part Of Me For They en español...<cite>Una parte de mi para ellos.</cite>
                     </blockquote>
                 </div>
                 <div class="span6 aligncenter flyRight">
@@ -237,7 +237,7 @@
             <div class="row">
                 <div class="span12 aligncenter flyLeft">
                     <blockquote class="large">
-                        Tu ayuda puede marcar la diferiencia.
+                        Tu ayuda puede marcar la diferencia.
                     </blockquote>
                 </div>
                 <div class="span12 aligncenter flyRight">

@@ -153,28 +153,27 @@
                                         ->required() }}
                                     </div><!--col-->
                                 </div><!--col-->
-                               <div class="form-group row">
-                                    <div class="col-md-6">
-                                        {{ html()->label(__('validation.attributes.backend.access.foods.lat'))->class('col-md-12 form-control-label')->for('lat') }}
-
-                                        {{ html()->text('lat')
-                                            ->class('form-control')
-                                            ->attribute('maxlength', 191)
-                                            ->required() }}
-                                    </div><!--col-->
-                                    <div class="col-md-6">
-                                        {{ html()->label(__('validation.attributes.backend.access.foods.lng'))->class('col-md-12 form-control-label')->for('lng') }}
-
-                                        {{ html()->text('lng')
-                                            ->class('form-control')
-                                            ->attribute('maxlength', 191)
-                                            ->required() }}
-                                    </div><!--col-->
-                                </div><!--col-->
+                               
                                
                             </div><!--col-->
                             
+                            <div class="col-md-4">
                             <div class="col-xs-12 col-sm-12 col-md-4 form-group"> 
+
+                                
+                              
+
+                                <select name="status" id="status" class="js-example-responsive " >
+                                     <option value="ubicacion">Seleccione su ciudad</option>
+                                    @if ($logged_in_user->isAdmin())
+                                        <option value="Puebla">Puebla</option>
+                                        <option value="Veracruz">Veracruz</option>
+                                        
+                                    @endif
+
+                                </select>
+                            </div><!--col-->
+
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                      <!-- div donde se dibuja el mapa-->
                                     <div id="map_canvas" style="width:220px;height:320px;">
@@ -215,6 +214,8 @@
                 </div><!--row-->
             </div><!--card-footer-->
         </div><!--card-->
+
+
     {{ html()->form()->close() }}
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -289,8 +290,7 @@
  
     //funcion que simplemente actualiza los campos del formulario
     function updatePosition(latLng){     
-        jQuery('#lat').val(latLng.lat());
-        jQuery('#lng').val(latLng.lng());
+        
     }
     
     function setupEvents() {
@@ -411,8 +411,7 @@
         {
             //escribimos las coordenadas de la posicion actual del marcador dentro del input #coords
             
-            jQuery('#lat').val(this.getPosition().lat());
-            jQuery('#lng').val(this.getPosition().lng());
+            
         });
 
         markers.push(marker);
@@ -457,9 +456,7 @@
         marker.addListener( 'dragend', function (event)
         {
             //escribimos las coordenadas de la posicion actual del marcador dentro del input #coords
-            
-            jQuery('#lat').val(this.getPosition().lat());
-            jQuery('#lng').val(this.getPosition().lng());
+        
         });
         markers.push(marker);
 
