@@ -125,8 +125,6 @@ class ServiceRepository extends BaseRepository
                 'service'  => $data['service'],
                 'fecha'           => $data['fecha']." ".$data['hora'],
                 'direccion'       => $data['direccion'],
-                'lat'             => $data['lat'],
-                'lng'             => $data['lng'],
                 'user_id'         => Auth::user()->id,
             ]);
 

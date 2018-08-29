@@ -132,7 +132,9 @@ class ProductRepository extends BaseRepository
             ]);
 
             if ($image) {
+
                 $product->image_type = 'storage';
+
                 $product->image_location = $image->store('/products', 'public');
             } else {
                 // No image being passed
@@ -172,8 +174,6 @@ class ProductRepository extends BaseRepository
                 'active'          => 1,
                 'status'          => $data['status'],
                 'direccion'       => $data['direccion'],
-                'lat'             => $data['lat'],
-                'lng'             => $data['lng'],
                 'evidence_text'   => $data['evidence_text'],
                 'evidence_type'      => 'storage',
                 'evidence_location'  => $image->store('/evidence', 'public'),
