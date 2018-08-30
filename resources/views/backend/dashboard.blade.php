@@ -42,7 +42,7 @@
                         <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=Como funciona" alt="Como funciona [800x400]" src="{{asset('img/backend/bg1.jpeg')}}" data-holder-rendered="true">
                         <div class="carousel-caption d-none d-md-block">
                             <h3>¿Que puedo donar?</h3>
-                            <p>Enterete como puedes ayudar.</p>
+                            <p>Enteraté como puedes ayudar.</p>
                         </div>
                         </a>
                     </div>
@@ -60,7 +60,7 @@
                         <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide [800x400]" src="{{asset('img/backend/bg3.jpg')}}" data-holder-rendered="true">
                         <div class="carousel-caption d-none d-md-block">
                             <h3>Voluntarios</h3>
-                            <p>Obtenevidencia de tu ayuda.</p>
+                            <p>Obtén evidencia de tu ayuda.</p>
                         </div>
                         </a>
                     </div>
@@ -83,6 +83,50 @@
                 </div><!--card-header-->
                 <div class="card-block">
                     No hay noticias por este momento
+                </div><!--card-block-->
+            </div><!--card-->
+
+            <div class="card"><!--Reglamentos-->
+                <div class="card-header">
+                    <strong>Tips</strong>
+                </div><!--card-header-->
+                <div class="card-block">
+                    La ropa especialmente para niños y bebés no es económica. Así mismo, adultos y jóvenes de escasos recursos difícilmente pueden hacerse de ropa confortable y necesaria para el invierno, o el calor extremo, que les permita proteger su cuerpo y su dignidad. Por eso, dona la ropa que aún se encuentre en buen estado y desees darle un buen uso, puedes hacer mucho bien.
+                    <br> <br>
+                    Ideas para donar
+                    <br> <br>
+                    1.-Playeras y blusas que ya no usen tus hijos
+                    Pantalones, shorts y faldas respecto a los que cambiaste de opinión y ya no son de tu agrado o adecuados para ti
+                    Zapatos, tenis y sandalias aún funcionales pero que ya reemplazaste.
+                    <br>
+                    2.- Ropa para el invierno o el calor extremo.
+                    <br>
+                    3.- Ropa de tu bebé y niños pequeños que ya no usarán.
+                    <br>
+                    4.- Donar muebles, ayuda a  que familias e individuos, puedan crear un espacio habitable y óptimo para su desarrollo.
+                    <br>
+                    5.- Cosas que damos por sentado como tener donde sentarse,  un comedor para tomar los alimentos con la familia; 
+                    <br>son desafíos a veces infranqueables para muchas personas.
+                    <br><br>
+                    Te invitamos a ayudar a otros, creando más espacio en tu casa.
+
+                    <br><br>
+                    Satisfacción al Donante: No existe nada más gratificante saber que no estás desperdiciando algún producto y que en su lugar está beneficiando a alguien que realmente lo necesita.
+                    <br><br>
+                    A continuación te dejamos una lista de alimentos y víveres de primera necesidad, se recomiendan alimentos enlatados, no perecederos y que puedan consumirse sin necesidad de calentar o cocinar.
+                    <br><br>
+                    Agua embotellada
+                    Bolsas de arroz y lentejas
+                    Latas de atún y sardinas
+                    Latas o bolsas de frijoles
+                    Azúcar, café y chocolate
+                    Leche y leche en polvo
+                    Aceite
+                    Galletas
+                    Sopa de pasta
+                    Vegetales enlatados
+                    Fruta en almíbar 
+                    Alimento para bebé y mascotas
                 </div><!--card-block-->
             </div><!--card-->
         </div>

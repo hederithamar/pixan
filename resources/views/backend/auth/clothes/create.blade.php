@@ -153,24 +153,7 @@
                                         ->required() }}
                                     </div><!--col-->
                                 </div><!--col-->
-                               <div class="form-group row">
-                                    <div class="col-md-6">
-                                        {{ html()->label(__('validation.attributes.backend.access.clothes.lat'))->class('col-md-12 form-control-label')->for('lat') }}
-
-                                        {{ html()->text('lat')
-                                            ->class('form-control')
-                                            ->attribute('maxlength', 191)
-                                            ->required() }}
-                                    </div><!--col-->
-                                    <div class="col-md-6">
-                                        {{ html()->label(__('validation.attributes.backend.access.clothes.lng'))->class('col-md-12 form-control-label')->for('lng') }}
-
-                                        {{ html()->text('lng')
-                                            ->class('form-control')
-                                            ->attribute('maxlength', 191)
-                                            ->required() }}
-                                    </div><!--col-->
-                                </div><!--col-->
+                               
                                
                             </div><!--col-->
                             
@@ -289,8 +272,8 @@
  
     //funcion que simplemente actualiza los campos del formulario
     function updatePosition(latLng){     
-        jQuery('#lat').val(latLng.lat());
-        jQuery('#lng').val(latLng.lng());
+       
+
     }
     
     function setupEvents() {
@@ -321,8 +304,6 @@
         var latlng = getCenterLatLngText();
         var lat = map.getCenter().lat();
         var lng = map.getCenter().lng();
-        document.getElementById('lat').value = lat;
-        document.getElementById('lng').value = lng;
         reverseGeocode();
     }
 
@@ -411,8 +392,6 @@
         {
             //escribimos las coordenadas de la posicion actual del marcador dentro del input #coords
             
-            jQuery('#lat').val(this.getPosition().lat());
-            jQuery('#lng').val(this.getPosition().lng());
         });
 
         markers.push(marker);
@@ -458,8 +437,7 @@
         {
             //escribimos las coordenadas de la posicion actual del marcador dentro del input #coords
             
-            jQuery('#lat').val(this.getPosition().lat());
-            jQuery('#lng').val(this.getPosition().lng());
+           
         });
         markers.push(marker);
 
