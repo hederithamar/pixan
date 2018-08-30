@@ -157,23 +157,7 @@
                                
                             </div><!--col-->
                             
-                            <div class="col-md-4">
                             <div class="col-xs-12 col-sm-12 col-md-4 form-group"> 
-
-                                
-                              
-
-                                <select name="status" id="status" class="js-example-responsive " >
-                                     <option value="ubicacion">Seleccione su ciudad</option>
-                                    @if ($logged_in_user->isAdmin())
-                                        <option value="Puebla">Puebla</option>
-                                        <option value="Veracruz">Veracruz</option>
-                                        
-                                    @endif
-
-                                </select>
-                            </div><!--col-->
-
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                      <!-- div donde se dibuja el mapa-->
                                     <div id="map_canvas" style="width:220px;height:320px;">

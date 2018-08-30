@@ -8,6 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
+    
     <link rel="shortcut icon" href="theme/img/favicon.ico">
 
     {{ style('theme/css/bootstrap-responsive.css') }}
@@ -27,6 +28,8 @@
                     <!-- navigation -->
                     <nav class="pull-right nav-collapse collapse">
                         <ul id="menu-main" class="nav">
+                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"   data-target="#favoritesModal">Ubicación</button>
+                           <!-- <li><a title="location" href="#location">Ubicación</a></li>-->
                             <li><a title="team" href="#about">Información</a></li>
                             <li><a title="services" href="#services">Donaciones</a></li>
                             <li><a title="works" href="#works">Servicios</a></li>
@@ -58,6 +61,43 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="favoritesModal" 
+     tabindex="-1" role="dialog" 
+     aria-labelledby="favoritesModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" 
+          data-dismiss="modal" 
+          aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" 
+        id="favoritesModalLabel">APOMEFT</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+       Hemos detectado que nos visitas desde
+        <b><span id="fav-title">Tehuacán</span></b>
+        </p>
+        <p>
+            Selecciona si deseas cambiar tu ubicación
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" 
+           class="btn btn-default" 
+           data-dismiss="modal">Cerrar</button>
+        <span class="pull-right">
+          <button type="button" class="btn btn-primary">
+            Actualizar
+          </button>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
     <!-- Header area -->
     <div id="header-wrapper" class="header-slider">
         <header class="clearfix">
