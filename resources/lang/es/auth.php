@@ -14,7 +14,7 @@ return [
     */
 
     'failed'        => 'Las credenciales no se han encontrado.',
-    'general_error' => 'No tiene suficientes permisos..',
+    'general_error' => 'No tiene suficientes permisos.',
     'socialite'     => [
         'unacceptable' => ':provider no es un tipo de autenticación válida.',
     ],
