@@ -72,13 +72,15 @@
           data-dismiss="modal" 
           aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" 
+        <h4 class="text-center text-mute" class="modal-title" 
         id="favoritesModalLabel">APOMEFT</h4>
       </div>
       <div class="modal-body">
         <p>
        Hemos detectado que nos visitas desde
-        <b><span id="fav-title">Tehuacán</span></b>
+   </p>
+       <p>
+        <b><span class="text-center text-mute" id="fav-title">Tehuacán</span></b>
         </p>
         <p>
             Selecciona si deseas cambiar tu ubicación
@@ -97,6 +99,8 @@
     </div>
   </div>
 </div>
+
+    
 
     <!-- Header area -->
     <div id="header-wrapper" class="header-slider">
