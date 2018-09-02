@@ -145,6 +145,27 @@ return [
                     'user_id'         => 'Usuario asignado',
                 ],
             ],
+
+            'furniture' => [
+                'active'     => 'furniture activos',
+                'create'     => 'Crear una Donación de furniture',
+                'edit'       => 'Modificar una Donación de furniture',
+                'management' => 'Administración Donación de furniture',
+                'deleted'    => 'Donación de Alimentos eliminados',
+
+                'table' => [
+                    'name'            => 'Alimentos',
+                    'description'     => 'Descripcion',
+                    'category'        => 'Categoria',
+                    'stock'           => 'Vendidos',
+                    'date_end'        => 'Fecha',
+                    'price'           => 'Precio',
+                    'sort'            => 'Orden',
+                    'last_updated'    => 'Última modificación',
+                    'total'           => 'Todos los Productos',
+                    'user_id'         => 'Usuario asignado',
+                ],
+            ],
              'babies' => [
                 'active'     => 'Seccion de bebes activos',
                 'create'     => 'Crear una Donación',

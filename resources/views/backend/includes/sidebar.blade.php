@@ -91,7 +91,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ active_class(Active::checkUriPattern('admin/auth/product*')) }}" href="{{ route('admin.auth.product.index') }}">
+                            <a class="nav-link {{ active_class(Active::checkUriPattern('admin/auth/product*')) }}" href="{{ route('admin.auth.donation.furniture.index') }}">
                                 {{ __('labels.backend.access.donations.furniture') }}
 
                                 @if ($pending_approval > 0)

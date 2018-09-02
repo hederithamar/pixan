@@ -1,20 +1,20 @@
 @extends ('backend.layouts.app')
 
-@section ('title', __('labels.backend.access.foods.management') . ' | ' . __('labels.backend.access.users.create'))
+@section ('title', __('labels.backend.access.furniture.management') . ' | ' . __('labels.backend.access.users.create'))
 
 @section('breadcrumb-links')
     @include('backend.auth.product.includes.breadcrumb-links')
 @endsection
 
 @section('content')
-    {{ html()->form('POST', route('admin.auth.donation.food.store'))->class('form-horizontal')->attribute('enctype', 'multipart/form-data')->open() }}
+    {{ html()->form('POST', route('admin.auth.donation.furniture.store'))->class('form-horizontal')->attribute('enctype', 'multipart/form-data')->open() }}
         <div class="card">
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-5">
                         <h4 class="card-title mb-0">
-                            {{ __('labels.backend.access.foods.management') }}
-                            <small class="text-muted">{{ __('labels.backend.access.foods.create') }}</small>
+                            {{ __('labels.backend.access.furniture.management') }}
+                            <small class="text-muted">{{ __('labels.backend.access.furniture.create') }}</small>
                         </h4>
                     </div><!--col-->
                 </div><!--row-->
@@ -25,26 +25,24 @@
                     <div class="col">
                         <div class="form-group row">
                             <div class="col-md-4">
-                                {{ html()->label(__('validation.attributes.backend.access.foods.category'))->class('col-md-12 form-control-label')->for('category') }}
+                                {{ html()->label(__('validation.attributes.backend.access.furniture.category'))->class('col-md-12 form-control-label')->for('category') }}
 
                                 <select name="category" id="category" class="js-example-responsive " required="required">
-                                     <option value="Alimentos">Alimentos</option>      
+                                     <option value="Bebes">Bebes</option>      
                                 </select>
                             </div><!--col-->
                             <div class="col-md-4">
-                                {{ html()->label(__('validation.attributes.backend.access.foods.sub_category'))->class('col-md-12 form-control-label')->for('sub_category') }}
+                                {{ html()->label(__('validation.attributes.backend.access.furniture.sub_category'))->class('col-md-12 form-control-label')->for('sub_category') }}
 
                                 <select name="sub_category" id="sub_category" class="js-example-responsive " required="required">
                                    
-                                        <option value="Enlatados">Enlatados</option>
-                                        <option value="Enbolsados">Enbolsados</option>
-                                        <option value="Cajas">Cajas</option>
-                                        <option value="Embotellados">Enbotellados</option>
-                                        <option value="Varios">Varios</option>
+                                        <option value="Ropa">Ropa</option>
+                                        <option value="juguetes">Juguetes</option>
+                                        
                                 </select>
                             </div><!--col-->
                             <div class="col-md-4">
-                                {{ html()->label(__('validation.attributes.backend.access.foods.status'))->class('col-md-12 form-control-label')->for('status') }}
+                                {{ html()->label(__('validation.attributes.backend.access.furniture.status'))->class('col-md-12 form-control-label')->for('status') }}
 
                                 <select name="status" id="status" class="js-example-responsive " >
                                      <option value="En espera">En espera</option>
@@ -64,22 +62,22 @@
                         <div class="form-group row">
                            
                             <div class="col-md-4">
-                                {{ html()->label(__('validation.attributes.backend.access.foods.name'))->class('col-md-12 form-control-label')->for('name') }}
+                                {{ html()->label(__('validation.attributes.backend.access.furniture.name'))->class('col-md-12 form-control-label')->for('name') }}
 
                                 {{ html()->text('name')
                                     ->class('form-control')
-                                    ->placeholder(__('validation.attributes.backend.access.foods.name_input'))
+                                    ->placeholder(__('validation.attributes.backend.access.furniture.name_input'))
                                     ->attribute('maxlength', 191)
                                     ->required()
                                     ->autofocus() }}
                             </div><!--col-->
 
                             <div class="col-md-8">
-                                {{ html()->label(__('validation.attributes.backend.access.foods.description'))->class('col-md-12 form-control-label')->for('description') }}
+                                {{ html()->label(__('validation.attributes.backend.access.furniture.description'))->class('col-md-12 form-control-label')->for('description') }}
 
                                 {{ html()->text('description')
                                     ->class('form-control')
-                                    ->placeholder(__('validation.attributes.backend.access.foods.description_input'))
+                                    ->placeholder(__('validation.attributes.backend.access.furniture.description_input'))
                                     ->attribute('maxlength', 191)
                                     ->required() }}
                             </div><!--col-->
@@ -92,28 +90,28 @@
                             <div class="col-md-8">
                                 <div class="form-group row">
                                     <div class="col-md-6">
-                                         {{ html()->label(__('validation.attributes.backend.access.foods.stock'))->class('col-md-12 form-control-label')->for('stock') }}
+                                         {{ html()->label(__('validation.attributes.backend.access.furniture.stock'))->class('col-md-12 form-control-label')->for('stock') }}
 
 
                                         {{ html()->text('stock')
                                             ->class('form-control')
-                                            ->placeholder(__('validation.attributes.backend.access.foods.stock_input'))
+                                            ->placeholder(__('validation.attributes.backend.access.furniture.stock_input'))
                                             ->attribute('maxlength', 191)
                                             ->required() }}
                                     </div><!--col-->
                                     <div class="col-md-6">
-                                         {{ html()->label(__('validation.attributes.backend.access.foods.number_product'))->class('col-md-12 form-control-label')->for('stock') }}
+                                         {{ html()->label(__('validation.attributes.backend.access.furniture.number_product'))->class('col-md-12 form-control-label')->for('stock') }}
 
 
                                         {{ html()->text('number_product')
                                             ->class('form-control')
-                                            ->placeholder(__('validation.attributes.backend.access.foods.stock_input'))
+                                            ->placeholder(__('validation.attributes.backend.access.furniture.stock_input'))
                                             ->attribute('maxlength', 191)
                                             ->required() }}
                                     </div><!--col-->
                                     @if ($logged_in_user->isAdmin())
                                         <div class="col-md-2">
-                                            {{ html()->label(__('validation.attributes.backend.access.foods.active'))->class('col-md-12 form-control-label')->for('active') }}
+                                            {{ html()->label(__('validation.attributes.backend.access.furniture.active'))->class('col-md-12 form-control-label')->for('active') }}
 
                                             <label class="switch switch-3d switch-primary">
                                                 {{ html()->checkbox('active', true, '1')->class('switch-input') }}
@@ -125,7 +123,7 @@
                                 </div><!--col-->
                                 <div class="form-group row">
                                     <div class="col-md-6">
-                                        {{ html()->label(__('validation.attributes.backend.access.foods.date'))->class('col-md-12 form-control-label')->for('date') }}
+                                        {{ html()->label(__('validation.attributes.backend.access.furniture.date'))->class('col-md-12 form-control-label')->for('date') }}
 
                                         {{ html()->text('fecha')
                                             ->class('form-control')
@@ -133,7 +131,7 @@
                                             ->required() }}
                                     </div><!--col-->
                                      <div class="col-md-6">
-                                        {{ html()->label(__('validation.attributes.backend.access.foods.hour'))->class('col-md-12 form-control-label')->for('hour') }}
+                                        {{ html()->label(__('validation.attributes.backend.access.furniture.hour'))->class('col-md-12 form-control-label')->for('hour') }}
 
                                         {{ html()->text('hora')
                                             ->class('form-control')
@@ -144,11 +142,11 @@
                                
                                 <div class="form-group row">
                                     <div class="col-md-12">
-                                    {{ html()->label(__('validation.attributes.backend.access.foods.direccion'))->class('col-md-12 form-control-label')->for('direccion') }}
+                                    {{ html()->label(__('validation.attributes.backend.access.furniture.direccion'))->class('col-md-12 form-control-label')->for('direccion') }}
 
                                     {{ html()->text('direccion')
                                         ->class('form-control')
-                                        ->placeholder(__('validation.attributes.backend.access.foods.direccion_input'))
+                                        ->placeholder(__('validation.attributes.backend.access.furniture.direccion_input'))
                                         ->attribute('maxlength', 191)
                                         ->required() }}
                                     </div><!--col-->
@@ -189,7 +187,7 @@
             <div class="card-footer clearfix">
                 <div class="row">
                     <div class="col">
-                        {{ form_cancel(route('admin.auth.donation.food.index'), __('buttons.general.cancel')) }}
+                        {{ form_cancel(route('admin.auth.donation.furniture.index'), __('buttons.general.cancel')) }}
                     </div><!--col-->
 
                     <div class="col text-right">
@@ -272,7 +270,7 @@
  
     //funcion que simplemente actualiza los campos del formulario
     function updatePosition(latLng){     
-        
+       
     }
     
     function setupEvents() {
@@ -394,6 +392,7 @@
             //escribimos las coordenadas de la posicion actual del marcador dentro del input #coords
             
             
+
         });
 
         markers.push(marker);
@@ -438,7 +437,7 @@
         marker.addListener( 'dragend', function (event)
         {
             //escribimos las coordenadas de la posicion actual del marcador dentro del input #coords
-        
+          
         });
         markers.push(marker);
 

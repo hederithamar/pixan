@@ -214,12 +214,12 @@ Route::group([
 
             Route::get('furniture/deleted', 'FurnitureController@getDeleted')->name('furniture.deleted');
             /*
-             * Muebles CRUD
+             * Food CRUD
              */
             Route::resource('furniture', 'FurnitureController');
 
             /*
-             * Delete Muebles
+             * Deleted Food
              */
             Route::group(['prefix' => 'furniture/{deletedFurniture}'], function () {
                 Route::get('delete', 'FurnitureController@delete')->name('furniture.delete-permanently');
