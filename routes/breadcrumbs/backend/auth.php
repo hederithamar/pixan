@@ -9,3 +9,6 @@ require __DIR__.'/auth/voluntary.php';
 require __DIR__.'/auth/food.php';
 require __DIR__.'/auth/clothes.php';
 require __DIR__.'/auth/babies.php';
+require __DIR__.'/auth/furniture.php';
+require __DIR__.'/auth/supplies.php';
+require __DIR__.'/auth/books.php';

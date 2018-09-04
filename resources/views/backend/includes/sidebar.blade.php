@@ -91,7 +91,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ active_class(Active::checkUriPattern('admin/auth/product*')) }}" href="{{ route('admin.auth.product.index') }}">
+                            <a class="nav-link {{ active_class(Active::checkUriPattern('admin/auth/product*')) }}" href="{{ route('admin.auth.donation.furniture.index') }}">
                                 {{ __('labels.backend.access.donations.furniture') }}
 
                                 @if ($pending_approval > 0)
@@ -100,7 +100,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ active_class(Active::checkUriPattern('admin/auth/user*')) }}" href="{{ route('admin.auth.user.index') }}">
+                            <a class="nav-link {{ active_class(Active::checkUriPattern('admin/auth/user*')) }}" href="{{ route('admin.auth.donation.supplies.index') }}">
                                 {{ __('labels.backend.access.donations.supplies') }}
 
                                 @if ($pending_approval > 0)
@@ -109,7 +109,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ active_class(Active::checkUriPattern('admin/auth/product*')) }}" href="{{ route('admin.auth.product.index') }}">
+                            <a class="nav-link {{ active_class(Active::checkUriPattern('admin/auth/product*')) }}" href="{{ route('admin.auth.donation.books.index') }}">
                                 {{ __('labels.backend.access.donations.books') }}
 
                                 @if ($pending_approval > 0)
