@@ -228,6 +228,48 @@ Route::group([
         });
 
 
+        /*
+         * Babies Management
+         */
+        Route::group(['namespace' => 'Books'], function () {
+
+            Route::get('books/deleted', 'BooksController@getDeleted')->name('books.deleted');
+            /*
+             * Babies CRUD
+             */
+            Route::resource('books', 'BooksController');
+
+            /*
+             * Deleted babies
+             */
+            Route::group(['prefix' => 'books/{deletedBooks}'], function () {
+                Route::get('delete', 'BooksController@delete')->name('books.delete-permanently');
+                Route::get('restore', 'BooksController@restore')->name('books.restore');
+            });
+        });
+
+
+        /*
+         * Utiles Management
+         */
+        Route::group(['namespace' => 'Supplies'], function () {
+
+            Route::get('supplies/deleted', 'SuppliesController@getDeleted')->name('supplies.deleted');
+            /*
+             * Utiles CRUD
+             */
+            Route::resource('supplies', 'SuppliesController');
+
+            /*
+             * Deleted Utiles
+             */
+            Route::group(['prefix' => 'supplies/{deletedSupplies}'], function () {
+                Route::get('delete', 'SuppliesController@delete')->name('supplies.delete-permanently');
+                Route::get('restore', 'SuppliesController@restore')->name('supplies.restore');
+            });
+        });
+
+
 
 
     });
