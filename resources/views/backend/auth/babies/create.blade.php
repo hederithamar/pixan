@@ -36,8 +36,13 @@
 
                                 <select name="sub_category" id="sub_category" class="js-example-responsive " required="required">
                                    
-                                        <option value="Ropa">Ropa</option>
-                                        <option value="juguetes">Juguetes</option>
+                                        <option value="Ropa">Ropa del bebé</option>
+                                        <option value="Cuidados para bebe">Cuidados para bebé</option>
+                                        <option value="Cambio para pañales">Cambio para pañales</option>
+                                        <option value="Alimentos del bebe">Alimentos del bebé</option>
+                                        <option value="Para dormir">Para dormir</option>
+                                        <option value="Para viajar">Para viajar</option>
+                                        <option value="Entretenimiento">Entretenimiento</option>
                                         
                                 </select>
                             </div><!--col-->

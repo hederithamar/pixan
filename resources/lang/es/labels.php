@@ -76,6 +76,7 @@ return [
                     'total'           => 'Todos los Roles',
                 ],
             ],
+
             'services' => [
                 'active'     => 'Servicios activos',
                 'management' => 'Administración de Servicios',
@@ -102,7 +103,29 @@ return [
                 ],
             ],
 
+             'books' => [
+                'active'     => 'Seccion de Libros activos',
+                'create'     => 'Crear una Donación',
+                'edit'       => 'Modificar una Donación ',
+                'management' => 'Administración Donación de Libros',
+                'deleted'    => 'Donación de Libros eliminados',
 
+                'table' => [
+                    'name'            => 'books',
+                    'description'     => 'Descripcion',
+                    'category'        => 'Categoria',
+                    'stock'           => 'Vendidos',
+                    'date_end'        => 'Fecha',
+                    'price'           => 'Precio',
+                    'sort'            => 'Orden',
+                    'last_updated'    => 'Última modificación',
+                    'total'           => 'Todos los Productos',
+                    'user_id'         => 'Usuario asignado',
+                ],
+            ],
+
+
+            
             'products' => [
                 'active'     => 'Productos activos',
                 'create'     => 'Crear Producto',
@@ -125,6 +148,28 @@ return [
             ],
 
 
+            'furniture' => [
+                'active'     => 'Muebles activos',
+                'create'     => 'Crear una Donación de Muebles',
+                'edit'       => 'Modificar una Donación de Muebles',
+                'management' => 'Administración Donación de Muebles',
+                'deleted'    => 'Donación de Muebles eliminados',
+
+                'table' => [
+                    'name'            => 'Muebles',
+                    'description'     => 'Descripcion',
+                    'category'        => 'Categoria',
+                    'stock'           => 'Vendidos',
+                    'date_end'        => 'Fecha',
+                    'price'           => 'Precio',
+                    'sort'            => 'Orden',
+                    'last_updated'    => 'Última modificación',
+                    'total'           => 'Todos los Productos',
+                    'user_id'         => 'Usuario asignado',
+                ],
+            ],            
+
+
             'foods' => [
                 'active'     => 'Alimentos activos',
                 'create'     => 'Crear una Donación de Alimentos',
@@ -145,15 +190,37 @@ return [
                     'user_id'         => 'Usuario asignado',
                 ],
             ],
+
              'babies' => [
                 'active'     => 'Seccion de bebes activos',
                 'create'     => 'Crear una Donación',
                 'edit'       => 'Modificar una Donación ',
-                'management' => 'Administración Donación',
-                'deleted'    => 'Donación de  eliminados',
+                'management' => 'Administración Donación de Bebés',
+                'deleted'    => 'Donación de Bebés eliminados',
 
                 'table' => [
-                    'name'            => 'Bebes',
+                    'name'            => 'Bebés',
+                    'description'     => 'Descripcion',
+                    'category'        => 'Categoria',
+                    'stock'           => 'Vendidos',
+                    'date_end'        => 'Fecha',
+                    'price'           => 'Precio',
+                    'sort'            => 'Orden',
+                    'last_updated'    => 'Última modificación',
+                    'total'           => 'Todos los Productos',
+                    'user_id'         => 'Usuario asignado',
+                ],
+            ],
+
+            'supplies' => [
+                'active'     => 'Seccion de utiles escolares',
+                'create'     => 'Crear una Donación',
+                'edit'       => 'Modificar una Donación ',
+                'management' => 'Administración Donación Utiles Escolares',
+                'deleted'    => 'Donación de Utiles escolares eliminados',
+
+                'table' => [
+                    'name'            => 'Utiles',
                     'description'     => 'Descripcion',
                     'category'        => 'Categoria',
                     'stock'           => 'Vendidos',
@@ -167,6 +234,50 @@ return [
             ],
 
 
+             'tools' => [
+                'active'     => 'Seccion de Herramientas activos',
+                'create'     => 'Crear una Donación',
+                'edit'       => 'Modificar una Donación ',
+                'management' => 'Administración Donación de Herramientas',
+                'deleted'    => 'Donación de Herramientas eliminados',
+
+                'table' => [
+                    'name'            => 'Herramientas',
+                    'description'     => 'Descripcion',
+                    'category'        => 'Categoria',
+                    'stock'           => 'Vendidos',
+                    'date_end'        => 'Fecha',
+                    'price'           => 'Precio',
+                    'sort'            => 'Orden',
+                    'last_updated'    => 'Última modificación',
+                    'total'           => 'Todos los Productos',
+                    'user_id'         => 'Usuario asignado',
+                ],
+            ],
+
+
+             'toys' => [
+                'active'     => 'Seccion de Juguetes activos',
+                'create'     => 'Crear una Donación',
+                'edit'       => 'Modificar una Donación ',
+                'management' => 'Administración Donación Juguetes',
+                'deleted'    => 'Donación de Jueguetes eliminados',
+
+                'table' => [
+                    'name'            => 'Juguetes',
+                    'description'     => 'Descripcion',
+                    'category'        => 'Categoria',
+                    'stock'           => 'Vendidos',
+                    'date_end'        => 'Fecha',
+                    'price'           => 'Precio',
+                    'sort'            => 'Orden',
+                    'last_updated'    => 'Última modificación',
+                    'total'           => 'Todos los Productos',
+                    'user_id'         => 'Usuario asignado',
+                ],
+            ],
+
+                
 
             'clothes' => [
                 'active'     => 'Ropa activos',
@@ -176,7 +287,7 @@ return [
                 'deleted'    => 'Donación de Ropa eliminados',
 
                 'table' => [
-                    'name'            => 'Alimentos',
+                    'name'            => 'Ropa',
                     'description'     => 'Descripcion',
                     'category'        => 'Categoria',
                     'stock'           => 'Vendidos',
@@ -197,7 +308,7 @@ return [
                 'deleted'    => 'Servicios de  eliminados',
 
                 'table' => [
-                    'name'            => 'Bebes',
+                    'name'            => 'Servicio',
                     'description'     => 'Descripcion',
                     'category'        => 'Categoria',
                     'stock'           => 'Vendidos',

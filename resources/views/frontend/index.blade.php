@@ -5,15 +5,18 @@
     <meta charset="utf-8">
     <title>APOMEFT - Part Of Me For They</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&language=en"></script>
     <meta name="description" content="">
     <meta name="author" content="">
-    
     
     <link rel="shortcut icon" href="theme/img/favicon.ico">
 
     {{ style('theme/css/bootstrap-responsive.css') }}
     {{ style('theme/css/style.css') }}
     {{ style('theme/css/defaeult.css') }}
+
 
 <body>
     <!-- navbar -->
@@ -28,18 +31,37 @@
                     <!-- navigation -->
                     <nav class="pull-right nav-collapse collapse">
                         <ul id="menu-main" class="nav">
-                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"   data-target="#favoritesModal">Ubicación</button>
-                           <!-- <li><a title="location" href="#location">Ubicación</a></li>-->
-                            <li><a title="team" href="#about">Información</a></li>
-                            <li><a title="services" href="#services">Donaciones</a></li>
-                            <li><a title="works" href="#works">Servicios</a></li>
-                            <li><a title="blog" href="#blog">Voluntarios</a></li>
                             
             @guest
                 <li class="nav-item"><a href="{{route('frontend.auth.login')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.auth.login')) }}">{{ __('navs.frontend.login') }}</a></li>
 
                 @if (config('access.registration'))
+
                     <li class="nav-item"><a href="{{route('frontend.auth.register')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.auth.register')) }}">{{ __('navs.frontend.register') }}</a></li>
+
+                    <li><a title="team" href="#about">Información</a></li>
+                    <li><a title="services" href="#services">Donaciones</a></li>
+                    <li><a title="works" href="#works">Servicios</a></li>
+                    <li><a title="blog" href="#blog">Voluntarios</a></li>
+
+                    <!-- icono Modal ubicación -->
+                    <li class="nav-item">
+                        <a id="name-ubi" data-toggle="modal" data-target="#modalUbicacion" style="cursor:pointer">
+                            <i class="material-icons">room</i>
+                        </a>
+                    </li>
+                    <!-- icono Modal ubicación -->
+
+                    <!-- Activación del modal -->
+                    <script>
+                       $(document).ready(function()
+                       {
+                          $("#modalUbicacion").modal("show");
+                          initialize();
+                       });
+                    </script>
+                    <!-- Activación del modal -->
+
                 @endif
             @else
                 <li class="nav-item dropdown">
@@ -55,6 +77,8 @@
 
                 <li class="nav-item"><a href="{{ route('frontend.auth.logout') }}" class="nav-link {{ active_class(Active::checkRoute('frontend.auth.logout')) }}">{{ __('navs.general.logout') }}</a></li>
             @endguest
+
+
                         </ul>
                     </nav>
                 </div>
@@ -62,45 +86,100 @@
         </div>
     </div>
 
-    <div class="modal fade" id="favoritesModal" 
-     tabindex="-1" role="dialog" 
-     aria-labelledby="favoritesModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" 
-          data-dismiss="modal" 
-          aria-label="Close">
-          <span aria-hidden="true">&times;</span></button>
-        <h4 class="text-center text-mute" class="modal-title" 
-        id="favoritesModalLabel">APOMEFT</h4>
-      </div>
-      <div class="modal-body">
-        <p>
-       Hemos detectado que nos visitas desde
-   </p>
-       <p>
-        <b><span class="text-center text-mute" id="fav-title">Tehuacán</span></b>
-        </p>
-        <p>
-            Selecciona si deseas cambiar tu ubicación
-        </p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" 
-           class="btn btn-default" 
-           data-dismiss="modal">Cerrar</button>
-        <span class="pull-right">
-          <button type="button" class="btn btn-primary">
-            Actualizar
-          </button>
-        </span>
-      </div>
+<!-- MODAL ubicación -->
+<div class="modal fade" id="modalUbicacion" role="dialog" aria-labelledby="favoritesModalLabel">
+
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button type="button" class="close" 
+              data-dismiss="modal" 
+              aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+            <h4 class="text-center text-mute" class="modal-title" 
+            id="favoritesModalLabel"> <img src="theme/img/icons/APOMEFT DONACIONES_opt.png"/>APOMEFT</h4>
+          </div>
+
+            <div class="modal-body">    
+
+            <p>
+                Selecciona tu Ubicación
+            </p>
+
+            <!--= = = = = =  = = = = = = = =  = = = = =  = = = = = =  = = = = = =  = =-->
+    
+    <style type="text/css">
+        .pac-container {
+            background-color: #FFF;
+            z-index: 20;
+            position: fixed;
+            display: inline-block;
+            float: left;
+        }
+        .modal{
+            z-index: 20;   
+        }
+        .modal-backdrop{
+            z-index: 10;        
+        }
+    </style>
+
+    <input type="text" id="autocomplete" placeholder="Ingresa tu Ubicación"/>
+
+
+            <!--= = = = = =  = = = = = = = =  = = = = =  = = = = = =  = = = = = =  = =-->
+
+
+                <div class="modal-footer">
+                    <button type="button" 
+                       class="btn btn-default" 
+                       data-dismiss="modal">
+                        Cerrar
+                    </button>
+
+                      <button id="btn-mod-s" type="button" class="btn btn-primary">
+                        Actualizar
+                      </button>
+              </div>
+
+            <script type="text/javascript">
+                
+                var direccion;
+
+                direccion = (document.getElementById('direccion'));
+
+            </script>
+
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
-    
+    <script>
+        
+        // Autocompletar ubicación
+        var textLocacion = document.getElementById('autocomplete');
+        var autocomplete = new google.maps.places.Autocomplete(textLocacion);
+
+        // Set Ubicación en Navbar
+        $('#btn-mod-s').click(function() {
+
+            var ubi =  document.getElementById('autocomplete').value;
+            document.getElementById('name-ubi').innerHTML = ubi;
+            $('#modalUbicacion').modal('hide');
+
+        });
+
+        $('#btn-mod-n').click(function() {
+
+            $('#modalUbicacion').modal('hide');
+
+        });
+
+    </script>
+    <!-- MODAL ubicación -->
+
 
     <!-- Header area -->
     <div id="header-wrapper" class="header-slider">
@@ -120,7 +199,7 @@
                                 </li>
                                 <li>
                                     <p class="home-slide-content">
-                                        A part Of Me <strong>For They</strong>
+                                        Part Of Me <strong>For They</strong>
                                     </p>
                                 </li>
                                 <li>
@@ -142,7 +221,7 @@
             <div class="row">
                 <div class="span6 alignright flyLeft">
                     <blockquote class="large">
-                        El nombre APOMEFT por sus siglas en ingles significa A Part Of Me For They en español...<cite>Una parte de mi para ellos.</cite>
+                        El nombre APOMEFT por sus siglas en ingles significa Part Of Me For They en español...<cite>Una parte de mi para ellos.</cite>
                     </blockquote>
                 </div>
                 <div class="span6 aligncenter flyRight">
@@ -161,7 +240,7 @@
                     <div>
                         <h2>Una parte de mi <strong>para ellos.</strong></h2>
                         <p>
-                            Somos la organización donaciones APOMEFT, especializada en recaudar donaciones de: productos y servicios profesionales sin fines de lucro, cubriendo la necesidad de apoyo mutuo bajo el contrato de permuta; la solidaridad, voluntad, confianza y seguridad nos distinguen...  
+                              Somos la organización APOMEFT, especializada en gestionar donaciones de productos y servicios profesionales sin fines de lucro; a través de una página web y móvil interactiva entre donante y donatario para nuevas soluciones en respuesta a mitigar los indicadores de carencia, generando un crecimiento sostenible, la solidaridad y confianza nos distinguen...  
                         </p>
                     </div>
                 </div>
@@ -281,7 +360,7 @@
             <div class="row">
                 <div class="span12 aligncenter flyLeft">
                     <blockquote class="large">
-                        Tu ayuda puede marcar la diferencia.
+                        Tu ayuda puede marcar la diferiencia.
                     </blockquote>
                 </div>
                 <div class="span12 aligncenter flyRight">
@@ -308,7 +387,7 @@
                             <p>
                                Necesitamos tu apoyo para coordinar... &hellip;
                             </p>
-                            <a href="#" class="more">Saber más</a>
+                            <a href="#" class="more">Read more</a>
                         </div>
                     </div>
                 </div>
@@ -373,3 +452,5 @@
 </body>
 
 </html>
+
+

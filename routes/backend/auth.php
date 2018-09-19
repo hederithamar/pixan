@@ -204,5 +204,113 @@ Route::group([
                 Route::get('restore', 'BabiesController@restore')->name('babies.restore');
             });
         });
+
+
+         /*
+         * Herramientas Management
+         */
+        Route::group(['namespace' => 'Tools'], function () {
+
+            Route::get('tools/deleted', 'ToolsController@getDeleted')->name('tools.deleted');
+            /*
+             * Clothes CRUD
+             */
+            Route::resource('tools', 'ToolsController');
+
+            /*
+             * Deleted Clothes
+             */
+            Route::group(['prefix' => 'tools/{deletedTools}'], function () {
+                Route::get('delete', 'ToolsController@delete')->name('tools.delete-permanently');
+                Route::get('restore', 'ToolsController@restore')->name('tools.restore');
+            });
+        });
+
+
+
+         /*
+         * Libros Management
+         */
+        Route::group(['namespace' => 'Books'], function () {
+
+            Route::get('books/deleted', 'BooksController@getDeleted')->name('books.deleted');
+            /*
+             * Clothes CRUD
+             */
+            Route::resource('books', 'BooksController');
+
+            /*
+             * Deleted Clothes
+             */
+            Route::group(['prefix' => 'books/{deletedBooks}'], function () {
+                Route::get('delete', 'BooksController@delete')->name('books.delete-permanently');
+                Route::get('restore', 'BooksController@restore')->name('books.restore');
+            });
+        });
+
+
+
+        /*
+         * Jugetes Management
+         */
+        Route::group(['namespace' => 'Toys'], function () {
+
+            Route::get('toys/deleted', 'ToysController@getDeleted')->name('toys.deleted');
+            /*
+             * Clothes CRUD
+             */
+            Route::resource('toys', 'ToysController');
+
+            /*
+             * Deleted Clothes
+             */
+            Route::group(['prefix' => 'toys/{deletedToys}'], function () {
+                Route::get('delete', 'ToysController@delete')->name('toys.delete-permanently');
+                Route::get('restore', 'ToysController@restore')->name('toys.restore');
+            });
+        });
+
+        /*
+         * Muebles Management
+         */
+        Route::group(['namespace' => 'Furniture'], function () {
+
+            Route::get('furniture/deleted', 'FurnitureController@getDeleted')->name('furniture.deleted'); 
+            /*  
+             * Clothes CRUD
+             */
+            Route::resource('furniture', 'FurnitureController');
+
+            /*
+             * Deleted Clothes
+             */
+            Route::group(['prefix' => 'furniture/{deletedFurniture}'], function () {
+                Route::get('delete', 'FurnitureController@delete')->name('furniture.delete-permanently');
+                Route::get('restore', 'FurnitureController@restore')->name('furniture.restore');
+            });
+        });
+
+
+
+        /*
+         * Utiles escolares Management
+         */
+        Route::group(['namespace' => 'Supplies'], function () {
+
+            Route::get('supplies/deleted', 'SuppliesController@getDeleted')->name('supplies.deleted');
+            /*
+             * Clothes CRUD
+             */
+            Route::resource('supplies', 'SuppliesController');
+
+            /*
+             * Deleted Clothes
+             */
+            Route::group(['prefix' => 'supplies/{deletedSupplies}'], function () {
+                Route::get('delete', 'SuppliesController@delete')->name('supplies.delete-permanently');
+                Route::get('restore', 'SuppliesController@restore')->name('supplies.restore');
+            });
+        });
+
     });
 });

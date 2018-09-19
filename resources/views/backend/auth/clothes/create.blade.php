@@ -28,7 +28,7 @@
                                 {{ html()->label(__('validation.attributes.backend.access.clothes.category'))->class('col-md-12 form-control-label')->for('category') }}
 
                                 <select name="category" id="category" class="js-example-responsive " required="required">
-                                     <option value="Alimentos">Ropa</option>      
+                                     <option value="Ropa">Ropa</option>      
                                 </select>
                             </div><!--col-->
                             <div class="col-md-4">
